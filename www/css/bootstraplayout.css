@@ -1,0 +1,9 @@
+﻿.section {
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color:#111111;
+    color:#ccc;    
+    border-top:solid 3px #1E97E3;
+    height:50px;
+}
