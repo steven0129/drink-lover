@@ -12,22 +12,33 @@
     function onDeviceReady() {
         initComponent()
         client = new WindowsAzure.MobileServiceClient(appUrl)
-        console.log(client)
 
+        randomDrink('24.113287,120.661670', (results) => {
+            let response = results.responseText
+            let json = JSON.parse(response)
+            let length = json.results.length
+            let random = randomInt(0, length)
+            let display = json.results[random]
 
-        table = client.getTable(tableName)
-        table.read().then((results) => {
-            console.log(results)
-        }, (error) => {
-            console.log(error)
+            document.getElementById('drinkName').innerHTML = display.name
+            document.getElementById('address').innerHTML = display.formatted_address
+
+            try {
+                if (display.opening_hours.open_now) document.getElementById('opening').innerHTML = '正在營業'
+                else document.getElementById('opening').innerHTML = '已打烊'
+            } catch (e) { }
+
+            document.getElementById('rating').innerHTML = display.rating
+
+            console.log(display.name)
+            searchMenuImg(display.name + ' 價目表', (response) => {
+                let json = JSON.parse(response)
+                document.getElementById('menu1').src = json.value[0].contentUrl
+                document.getElementById('menu2').src = json.value[0].contentUrl
+            })
         })
 
-        randomDrink('24.113287,120.661670')
         randomOrder((string) => document.getElementById('orderID').innerHTML = string)
-        // searchMenuImg(''(response) => {
-        //     let json = JSON.parse(response)
-
-        // })
     }
 
     function initComponent() {
@@ -57,26 +68,12 @@
         return parseInt(upper * Math.random() + lower)
     }
 
-    function randomDrink(location) {
+    function randomDrink(location, handler) {
         client.invokeApi('placesinfo', {
             body: { location: location },
             method: 'POST'
         }).done((results) => {
-            let response = results.responseText
-            let json = JSON.parse(response)
-            let length = json.results.length
-            let random = randomInt(0, length)
-            let display = json.results[random]
-
-            document.getElementById('drinkName').innerHTML = display.name
-            document.getElementById('address').innerHTML = display.formatted_address
-
-            try {
-                if (display.opening_hours.open_now) document.getElementById('opening').innerHTML = '正在營業'
-                else document.getElementById('opening').innerHTML = '已打烊'
-            } catch (e) { }
-
-            document.getElementById('rating').innerHTML = display.rating
+            handler(results)
         }, (error) => {
             console.log('error:' + error.message)
         })
@@ -96,7 +93,7 @@
 
     function searchMenuImg(str, handler) {
         client.invokeApi('imagesearch', {
-            body: null,
+            body: { q:str },
             method: 'POST'
         }).done((results) => {
             let response = results.responseText
