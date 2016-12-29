@@ -43,8 +43,6 @@
         }, (error) => {
             console.log('geo error: ' + error.message)
         })
-
-
     }
 
     function initComponent() {
