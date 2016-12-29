@@ -13,8 +13,10 @@
         initComponent()
         client = new WindowsAzure.MobileServiceClient(appUrl)
 
-        navigator.geolocation.getCurrentPosition((position) => {
-            randomDrink(position.coords.latitude + ',' + position.coords.longitude, (results) => {
+        getLocationAsync().then((position) => {
+            return randomDrinkAsync(position.coords.latitude + ',' + position.coords.longitude)
+        }).then((results) => {
+            return new Promise((resolve, reject) => {
                 let response = results.responseText
                 let json = JSON.parse(response)
                 let length = json.results.length
@@ -30,18 +32,11 @@
                 } catch (e) { }
 
                 document.getElementById('rating').innerHTML = display.rating
-
-                console.log(display.name)
-                searchMenuImg(display.name + ' 價目表', (response) => {
-                    let json = JSON.parse(response)
-                    document.getElementById('menu1').src = json.value[0].contentUrl
-                    document.getElementById('menu2').src = json.value[0].contentUrl
-                })
-
                 randomOrder((string) => document.getElementById('orderID').innerHTML = string)
+                resolve(display.name)
             })
-        }, (error) => {
-            console.log('geo error: ' + error.message)
+        }).then((name) => {
+            return searchMenuImgAsync(name)
         })
     }
 
@@ -60,6 +55,16 @@
         })
     }
 
+    function getLocationAsync() {
+        return new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition((position) => {
+                resolve(position)
+            }, (error) => {
+                reject(error.message)
+            })
+        })
+    }
+
     function displayComponent(id) {
         document.getElementById(id).style.display = 'block'
     }
@@ -70,6 +75,19 @@
 
     function randomInt(lower, upper) {
         return parseInt(upper * Math.random() + lower)
+    }
+
+    function randomDrinkAsync(location) { // 隨機找出附近飲料店
+        return new Promise((resolve, reject) => {
+            client.invokeApi('placesinfo', {
+                body: { location: location },
+                method: 'POST'
+            }).done((results) => {
+                resolve((results))
+            }, (error) => {
+                reject(error.message)
+            })
+        })
     }
 
     function randomDrink(location, handler) {
@@ -83,6 +101,20 @@
         })
     }
 
+    function randomOrderAsync() {
+        return new Promise((resolve, reject) => {
+            client.invokeApi('random', {
+                body: null,
+                method: 'POST'
+            }).done((results) => {
+                let response = results.responseText
+                resolve(response)
+            }, (error) => {
+                reject('error: ' + error.message)
+            })
+        })
+    }
+
     function randomOrder(handler) {
         client.invokeApi('random', {
             body: null,
@@ -92,6 +124,20 @@
             handler(response)
         }, (error) => {
             console.log('error: ' + error.message)
+        })
+    }
+
+    function searchMenuImgAsync(str) {
+        return new Promise((resolve, reject) => {
+            client.invokeApi('imagesearch', {
+                body: { q: str },
+                method: 'POST'
+            }).done((results) => {
+                let response = results.responseText
+                resolve(response)
+            }, (error) => {
+                reject(error.message)
+            })
         })
     }
 
