@@ -13,32 +13,38 @@
         initComponent()
         client = new WindowsAzure.MobileServiceClient(appUrl)
 
-        randomDrink('24.113287,120.661670', (results) => {
-            let response = results.responseText
-            let json = JSON.parse(response)
-            let length = json.results.length
-            let random = randomInt(0, length)
-            let display = json.results[random]
-
-            document.getElementById('drinkName').innerHTML = display.name
-            document.getElementById('address').innerHTML = display.formatted_address
-
-            try {
-                if (display.opening_hours.open_now) document.getElementById('opening').innerHTML = '正在營業'
-                else document.getElementById('opening').innerHTML = '已打烊'
-            } catch (e) { }
-
-            document.getElementById('rating').innerHTML = display.rating
-
-            console.log(display.name)
-            searchMenuImg(display.name + ' 價目表', (response) => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            randomDrink(position.coords.latitude + ',' + position.coords.longitude, (results) => {
+                let response = results.responseText
                 let json = JSON.parse(response)
-                document.getElementById('menu1').src = json.value[0].contentUrl
-                document.getElementById('menu2').src = json.value[0].contentUrl
+                let length = json.results.length
+                let random = randomInt(0, length)
+                let display = json.results[random]
+
+                document.getElementById('drinkName').innerHTML = display.name
+                document.getElementById('address').innerHTML = display.formatted_address
+
+                try {
+                    if (display.opening_hours.open_now) document.getElementById('opening').innerHTML = '正在營業'
+                    else document.getElementById('opening').innerHTML = '已打烊'
+                } catch (e) { }
+
+                document.getElementById('rating').innerHTML = display.rating
+
+                console.log(display.name)
+                searchMenuImg(display.name + ' 價目表', (response) => {
+                    let json = JSON.parse(response)
+                    document.getElementById('menu1').src = json.value[0].contentUrl
+                    document.getElementById('menu2').src = json.value[0].contentUrl
+                })
+
+                randomOrder((string) => document.getElementById('orderID').innerHTML = string)
             })
+        }, (error) => {
+            console.log('geo error: ' + error.message)
         })
 
-        randomOrder((string) => document.getElementById('orderID').innerHTML = string)
+
     }
 
     function initComponent() {
@@ -93,7 +99,7 @@
 
     function searchMenuImg(str, handler) {
         client.invokeApi('imagesearch', {
-            body: { q:str },
+            body: { q: str },
             method: 'POST'
         }).done((results) => {
             let response = results.responseText
