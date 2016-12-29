@@ -37,6 +37,11 @@
             })
         }).then((name) => {
             return searchMenuImgAsync(name)
+        }).then((response) => {
+            let json = JSON.parse(response)
+            let imgUrl = json.value[0].contentUrl
+            document.getElementById('menu1').src = imgUrl
+            document.getElementById('menu2').src = imgUrl
         })
     }
 
@@ -90,31 +95,6 @@
         })
     }
 
-    function randomDrink(location, handler) {
-        client.invokeApi('placesinfo', {
-            body: { location: location },
-            method: 'POST'
-        }).done((results) => {
-            handler(results)
-        }, (error) => {
-            console.log('error:' + error.message)
-        })
-    }
-
-    function randomOrderAsync() {
-        return new Promise((resolve, reject) => {
-            client.invokeApi('random', {
-                body: null,
-                method: 'POST'
-            }).done((results) => {
-                let response = results.responseText
-                resolve(response)
-            }, (error) => {
-                reject('error: ' + error.message)
-            })
-        })
-    }
-
     function randomOrder(handler) {
         client.invokeApi('random', {
             body: null,
@@ -136,20 +116,8 @@
                 let response = results.responseText
                 resolve(response)
             }, (error) => {
-                reject(error.message)
+                alert(error.message)
             })
-        })
-    }
-
-    function searchMenuImg(str, handler) {
-        client.invokeApi('imagesearch', {
-            body: { q: str },
-            method: 'POST'
-        }).done((results) => {
-            let response = results.responseText
-            handler(response)
-        }, (error) => {
-            console.log('error: ' + error.message)
         })
     }
 })();
