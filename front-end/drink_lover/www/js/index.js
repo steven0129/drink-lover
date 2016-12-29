@@ -12,7 +12,10 @@
     function onDeviceReady() {
         initComponent()
         client = new WindowsAzure.MobileServiceClient(appUrl)
+        newLocation()
+    }
 
+    function newLocation() {
         getLocationAsync().then((position) => {
             return randomDrinkAsync(position.coords.latitude + ',' + position.coords.longitude)
         }).then((results) => {
