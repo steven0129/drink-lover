@@ -103,7 +103,7 @@
             let response = results.responseText
             handler(response)
         }, (error) => {
-            console.log('error: ' + error.message)
+            reject('error: ' + error.message)
         })
     }
 
