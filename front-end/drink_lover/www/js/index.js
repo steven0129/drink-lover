@@ -10,8 +10,8 @@
     document.addEventListener('deviceready', onDeviceReady, false)
 
     function onDeviceReady() {
-        initComponent()
         client = new WindowsAzure.MobileServiceClient(appUrl)
+        initComponent()
         newLocation()
     }
 
@@ -35,16 +35,31 @@
                 } catch (e) { }
 
                 document.getElementById('rating').innerHTML = display.rating
-                randomOrder((string) => document.getElementById('orderID').innerHTML = string)
+                // randomOrder((string) => document.getElementById('orderID').innerHTML = string)
                 resolve(display.name)
             })
         }).then((name) => {
             return searchMenuImgAsync(name)
         }).then((response) => {
-            let json = JSON.parse(response)
-            let imgUrl = json.value[0].contentUrl
-            document.getElementById('menu1').src = imgUrl
-            document.getElementById('menu2').src = imgUrl
+            return new Promise((resolve, error) => {
+                let json = JSON.parse(response)
+                let imgUrl = json.value[0].contentUrl
+                document.getElementById('menu1').src = imgUrl
+                document.getElementById('menu2').src = imgUrl
+            })
+        }).then(() => {
+            return randomOrderAsync()
+        }).then((orderID) => {
+            document.getElementById('orderID').innerHTML = orderID
+            document.getElementById('insertMenuBtn').removeEventListener('click')
+            document.getElementById('insertMenuBtn').addEventListener('click', () => {
+                table.insert({
+                    menuID: orderID,
+                    content: 'begin'
+                }).done((insertedItem) => { }, (error) => {
+                    throw new Error('Error loading data: ', error)
+                })
+            })
         })
     }
 
@@ -61,6 +76,28 @@
             displayComponent('orderClient')
             hideComponent('orderServer')
         })
+
+        table = client.getTable(tableName)
+        table.read().then((results) => {
+            results.map((value, index) => {
+                console.log(value)
+            })
+        }, (error) => {
+            throw new Error('Error loading data: ', error)
+        })
+
+        // table.insert({
+        //     menuID: 'test ID2',
+        //     content: 'testing2'
+        // }).done((insertedItem) => { }, (error) => {
+        //     throw new Error('Error loading data: ', error)
+        // })
+
+        // document.getElementById('insertMenuBtn').addEventListener('click', () => {
+        //     table.insert({
+
+        //     })
+        // })
     }
 
     function getLocationAsync() {
@@ -94,6 +131,20 @@
                 resolve((results))
             }, (error) => {
                 reject(error.message)
+            })
+        })
+    }
+
+    function randomOrderAsync() {
+        return new Promise((resolve, reject) => {
+            client.invokeApi('random', {
+                body: null,
+                method: 'POST'
+            }).done((results) => {
+                let response = results.responseText
+                resolve(response)
+            }, (error) => {
+                reject('error: ' + error.message)
             })
         })
     }
