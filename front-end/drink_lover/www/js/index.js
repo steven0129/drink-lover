@@ -1,6 +1,22 @@
 (function () {
     "use strict";
 
+    // Initialize your app
+    var myApp = new Framework7({
+        animateNavBackIcon: true
+    });
+
+    // Export selectors engine
+    var $$ = Dom7;
+
+    // Add main View
+    var mainView = myApp.addView('.view-main', {
+        // Enable dynamic Navbar
+        dynamicNavbar: true,
+        // Enable Dom Cache so we can use all inline pages
+        domCache: true
+    });
+
     var appUrl = 'https://drink-lover.azurewebsites.net'
     var client = null
     var table = null
@@ -11,8 +27,10 @@
 
     function onDeviceReady() {
         client = new WindowsAzure.MobileServiceClient(appUrl)
-        initComponent()
-        newLocation()
+        // initComponent()
+        // newLocation()
+
+        console.log('device is ready!!')
     }
 
     function newLocation() {
