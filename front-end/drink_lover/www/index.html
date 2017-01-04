@@ -22,12 +22,28 @@
                 <div data-page="index" class="navbar-inner">
                     <div class="center sliding">Drink Lover</div>
                 </div>
+
                 <div data-page="newOrder" class="navbar-inner cached">
                     <div class="left sliding">
                         <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a>
                     </div>
                     <div class="center sliding">產生訂單</div>
                 </div>
+
+                <div data-page="orderManagement" class="navbar-inner cached">
+                    <div class="left sliding">
+                        <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a>
+                    </div>
+                    <div class="center sliding">訂單管理</div>
+                </div>
+
+                <div data-page="inquireOrder" class="navbar-inner cached">
+                    <div class="left sliding">
+                        <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a>
+                    </div>
+                    <div class="center sliding">查詢其他訂單</div>
+                </div>
+
                 <div data-page="about" class="navbar-inner cached">
                     <div class="left sliding">
                         <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a>
@@ -35,15 +51,62 @@
                     <div class="center sliding">關於我們</div>
                 </div>
             </div>
-            
+
             <div class="pages navbar-through toolbar-through">
                 <div data-page="index" class="page">
                     <div class="page-content">
                         <div class="content-block-title">隨選飲料店</div>
-                        <div class="content-block">
-                            <div class="content-block-inner">
-                                <p>TODO: 加入隨選飲料店資訊</p>
-                            </div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">店家名稱</div>
+                                            <div class="item-after">無資料</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">地址</div>
+                                            <div class="item-after">無資料</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">營業狀態</div>
+                                            <div class="item-after">無資料</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Google社群評等</div>
+                                            <div class="item-after">無資料</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="accordion-item">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title">地圖</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <p>Item 1 content. Lorem ipsum dolor sit amet...</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         <div class="content-block-title">開始訂飲料</div>
                         <div class="content-block">
@@ -52,8 +115,9 @@
                                     <div class="col-50">
                                         <a href="#newOrder" class="button">產生訂單</a>
                                     </div>
+
                                     <div class="col-50">
-                                        <a href="#newOrder" class="button" disabled="true">訂單管理</a>
+                                        <a href="#orderManagement" class="button" disabled="true">訂單管理</a>
                                     </div>
                                 </div>
                             </p>
@@ -61,7 +125,7 @@
                             <p>
                                 <div class="row">
                                     <div class="col-50">
-                                        <a href="#about" class="button">查詢其他訂單</a>
+                                        <a href="#inquireOrder" class="button">查詢其他訂單</a>
                                     </div>
                                     <div class="col-50">
                                         <a href="#about" class="button">關於我們</a>
@@ -87,9 +151,24 @@
                         </div>
                     </div>
                 </div>
+
+                <div data-page="orderManagement" class="page cached">
+                    <div class="page-content">
+                        <div class="content-block">
+                            <p>You may go <a href="#" class="back">back</a> or load <a href="#about">About</a> page.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-page="inquireOrder" class="page cached">
+                    <div class="page-content">
+                        <div class="content-block">
+                            <p>You may go <a href="#" class="back">back</a> or load <a href="#about">About</a> page.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!--<div class="section">
