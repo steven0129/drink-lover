@@ -28,14 +28,11 @@ class customHTMLElement { // html UI重寫
     }
 }
 
-const _elementDrink = Symbol('elmentDrink')
 const _instanceDrink = Symbol('instanceDrink')
 const _infoDrink = Symbol('nameDrink')
-
 class drinkInfo extends customHTMLElement { // 隨選飲料店資訊
     constructor() {
         super()
-        this[_elementDrink] = null
         this[_instanceDrink] = null
         this[_infoDrink] = new Object()
         this[_infoDrink].name = null // 店家名稱
@@ -55,6 +52,13 @@ class drinkInfo extends customHTMLElement { // 隨選飲料店資訊
         return this[_infoDrink]
     }
 
+    updateUI() {
+        Object.keys(this[_infoDrink]).map((key1, index1) => {
+            let object = document.querySelectorAll('[name=' + key1 + ']')
+            Object.keys(object).map((key2, index2) => object[index2].innerHTML = this[_infoDrink][key1])
+        })
+    }
+
     getInstance() {
         if (!this[_instanceDrink]) this[_instanceDrink] = new drinkInfo()
         return this[_instanceDrink]
@@ -62,6 +66,43 @@ class drinkInfo extends customHTMLElement { // 隨選飲料店資訊
 }
 
 // TODO：訂單資訊模組
+const _instanceOrder = Symbol('instanceDrink')
+const _infoOrder = Symbol('nameDrink')
+class orderInfo extends customHTMLElement {
+    constructor() {
+        super()
+        this[_instanceOrder] = null
+        this[_infoOrder] = new Object()
+        this[_infoOrder].orderID = null
+        this[_infoOrder].menu = null
+    }
+
+    setInfo() {
+        Object.keys(this[_infoOrder]).map((key, index) => {
+            this[_infoOrder][key] = arguments[index]
+        })
+    }
+
+    getInfo() {
+        return this[_infoOrder]
+    }
+
+    updateUI() {
+        Object.keys(this[_infoOrder]).map((key1, index1) => {
+            let object = document.querySelectorAll('[name=' + key1 + ']')
+            Object.keys(object).map((key2, index2) => {
+                object[index2].innerHTML = this[_infoOrder][key1]
+            })
+        })
+    }
+
+    getInstance() {
+        if (!this[_instanceOrder]) this[_instanceOrder] = new orderInfo()
+        return this[_instanceOrder]
+    }
+}
+
+// TODO：客戶資訊模組
 // TODO：後端連接模組
 
 (function () {
@@ -91,6 +132,19 @@ class drinkInfo extends customHTMLElement { // 隨選飲料店資訊
         client = new WindowsAzure.MobileServiceClient(appUrl)
         // initComponent()
         // newLocation()
+
+        var object = new orderInfo
+        var instance1 = object.getInstance()
+        instance1.setInfo('sss')
+        instance1.updateUI()
+
+        var object2 = new drinkInfo
+        var instance2 = object2.getInstance()
+        instance2.setInfo('ssssss', 'aqaqa', 'aass', 'eeee', '<img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap \
+&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318 \
+&markers=color:red%7Clabel:C%7C40.718217,-73.998284 \
+&key=AIzaSyB1FeVNtCVEF6QKTquVuRYdX5IxInJZuYY" width="100%">')
+        instance2.updateUI()
 
         console.log('device is ready!!')
     }
