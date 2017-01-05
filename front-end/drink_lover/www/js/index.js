@@ -62,7 +62,7 @@ class drinkInfo extends customHTMLElement { // 隨選飲料店資訊
 }
 
 // TODO：訂單資訊模組
-// TODO：
+// TODO：後端連接模組
 
 (function () {
     "use strict";
