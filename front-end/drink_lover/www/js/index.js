@@ -1,7 +1,71 @@
+const _element = Symbol('element')
+const _instance1 = Symbol('instance1')
+class customHTMLElement { // html UI重寫
+    constructor() {
+        this[_element] = null
+        this[_instance1] = null
+    }
+
+    setElement(element) {
+        this[_element] = element
+    }
+
+    show() {
+        this[_element].style.display = 'block'
+    }
+
+    hide() {
+        this[_element].style.display = 'none'
+    }
+
+    html(value) {
+        this[_element].innerHTML = value
+    }
+
+    getInstance() {
+        if (!this[_instance1]) this[_instance1] = new customHTMLElement()
+        return this[_instance1]
+    }
+}
+
+const _elementDrink = Symbol('elmentDrink')
+const _instanceDrink = Symbol('instanceDrink')
+const _infoDrink = Symbol('nameDrink')
+
+class drinkInfo extends customHTMLElement { // 隨選飲料店資訊
+    constructor() {
+        super()
+        this[_elementDrink] = null
+        this[_instanceDrink] = null
+        this[_infoDrink] = new Object()
+        this[_infoDrink].name = null // 店家名稱
+        this[_infoDrink].address = null // 地址
+        this[_infoDrink].status = null // 營業狀態
+        this[_infoDrink].rating = null // Google社群評等
+        this[_infoDrink].map = null // 地圖
+    }
+
+    setInfo() {
+        Object.keys(this[_infoDrink]).map((key, index) => {
+            this[_infoDrink][key] = arguments[index]
+        })
+    }
+
+    getInfo() {
+        return this[_infoDrink]
+    }
+
+    getInstance() {
+        if (!this[_instanceDrink]) this[_instanceDrink] = new drinkInfo()
+        return this[_instanceDrink]
+    }
+}
+
+// TODO：訂單資訊模組
+// TODO：
+
 (function () {
     "use strict";
-
-    //TODO: 重構程式碼
 
     var myApp = new Framework7({
         animateNavBackIcon: true
@@ -19,6 +83,7 @@
     var table = null
     var tableName = 'menu'
     var useOfflineSync = false
+
 
     document.addEventListener('deviceready', onDeviceReady, false)
 
@@ -189,4 +254,6 @@
             })
         })
     }
+
+
 })();
