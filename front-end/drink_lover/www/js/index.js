@@ -22,6 +22,10 @@ class customHTMLElement { // html UI重寫
         this[_element].innerHTML = value
     }
 
+    click(callback) {
+        this[_element].addEventListener('click', callback)
+    }
+
     getInstance() {
         if (!this[_instance1]) this[_instance1] = new customHTMLElement()
         return this[_instance1]
@@ -65,7 +69,6 @@ class drinkInfo extends customHTMLElement { // 隨選飲料店資訊
     }
 }
 
-// TODO：訂單資訊模組
 const _instanceOrder = Symbol('instanceDrink')
 const _infoOrder = Symbol('nameDrink')
 class orderInfo extends customHTMLElement {
@@ -103,7 +106,46 @@ class orderInfo extends customHTMLElement {
 }
 
 // TODO：客戶資訊模組
+const _instanceConsumer = Symbol('instanceConsumer')
+const _consumer = Symbol('consumer')
+class consumerInfo extends customHTMLElement {
+    constructor() {
+        super()
+        this[_instanceConsumer] = null
+        this[_consumer] = new Array()
+    }
+
+    remove(name) {
+        delete this[_consumer][name]
+    }
+
+    add(name, message) {
+        this[_consumer][name] = message
+    }
+
+    get() {
+        return this[_consumer]
+    }
+
+    getInstance() {
+        if (!this[_instanceConsumer]) this[_instanceConsumer] = new consumerInfo()
+        return this[_instanceConsumer]
+    }
+}
+
 // TODO：後端連接模組
+const _instanceAzure = Symbol('instanceAzure')
+class azureMobileApp extends customHTMLElement {
+    constructor() {
+        super()
+        this[_instanceAzure] = null
+    }
+
+    getInstance() {
+        if (!this[_instanceAzure]) this[_instanceAzure] = new azureMobileApp()
+        return this[_instanceAzure]
+    }
+}
 
 (function () {
     "use strict";
@@ -125,7 +167,6 @@ class orderInfo extends customHTMLElement {
     var tableName = 'menu'
     var useOfflineSync = false
 
-
     document.addEventListener('deviceready', onDeviceReady, false)
 
     function onDeviceReady() {
@@ -135,7 +176,7 @@ class orderInfo extends customHTMLElement {
 
         var object = new orderInfo
         var instance1 = object.getInstance()
-        instance1.setInfo('sss')
+        instance1.setInfo('sss', '<img src="http://pic.pimg.tw/archive/1384765159-533673620_n.jpg?v=1384765161" width="100%">')
         instance1.updateUI()
 
         var object2 = new drinkInfo
@@ -145,6 +186,26 @@ class orderInfo extends customHTMLElement {
 &markers=color:red%7Clabel:C%7C40.718217,-73.998284 \
 &key=AIzaSyB1FeVNtCVEF6QKTquVuRYdX5IxInJZuYY" width="100%">')
         instance2.updateUI()
+
+        var object3 = new consumerInfo
+        var instance3 = object3.getInstance()
+        instance3.add('高宇哲', 'ssss')
+        instance3.add('steven', 'aaaaa')
+        console.log(instance3.get())
+        setTimeout(() => {
+            instance3.remove('高宇哲')
+            console.log(instance3.get())
+        }, 10000)
+
+        var object4 = new customHTMLElement
+        var instance4 = object4.getInstance()
+        instance4.setElement(document.querySelector('.prompt-title-ok'))
+        instance4.click(() => {
+            myApp.prompt('請輸入訂單編號', '查詢訂單', (value) => {
+                mainView.router.loadPage('#inquireOrder')
+            })
+        })
+
 
         console.log('device is ready!!')
     }
