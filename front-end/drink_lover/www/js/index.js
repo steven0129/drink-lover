@@ -13,10 +13,6 @@
     })
 
     var appUrl = 'https://drink-lover.azurewebsites.net'
-    var client = null
-    var table = null
-    var tableName = 'menu'
-    var useOfflineSync = false
     var instance = [
         (new customHTMLElement).getInstance(),
         (new drinkInfo).getInstance(),
@@ -36,6 +32,10 @@
         initOpenPreloader()
         newOrderClick()
         checkLocalStorage()
+        newDrinkGen()
+    }
+
+    function newDrinkGen() {
         instance[4].randomDrinkAsync('24.113305, 120.662819').then((info) => {
             let random = instance[6].getRandomInt(0, info.results.length - 1)
             let bestResult = info.results[random]
