@@ -197,6 +197,21 @@ class azureMobileApp extends customHTMLElement {
         this[_tableAzure] = this[_clientAzure].getTable(name)
     }
 
+    selectByOrderID(orderID) {
+        return new Promise((resolve, reject) => {
+            this[_tableAzure]
+                .where({
+                    orderID: orderID
+                })
+                .read()
+                .then((results) => {
+                    resolve(results[0].id)
+                }, (error) => {
+                    reject(error)
+                })
+        })
+    }
+
     insertTable(data) {
         return new Promise((resolve, reject) => {
             this[_tableAzure].insert(data).done((insertedItem) => {
@@ -204,6 +219,14 @@ class azureMobileApp extends customHTMLElement {
             }, (error) => {
                 reject('Error loading data: ' + error)
             })
+        })
+    }
+
+    deleteData(id) {
+        return new Promise((resolve, reject) => {
+            this[_tableAzure].del({ id: id }).done(() => resolve())
+        }, (error) => {
+            reject(error)
         })
     }
 

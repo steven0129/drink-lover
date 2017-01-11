@@ -1,12 +1,7 @@
 (function () {
     "use strict";
-
-    var myApp = new Framework7({
-        animateNavBackIcon: true
-    })
-
+    var myApp = new Framework7({ animateNavBackIcon: true })
     var $$ = Dom7
-
     var mainView = myApp.addView('.view-main', {
         dynamicNavbar: true,
         domCache: true
@@ -26,11 +21,13 @@
     document.addEventListener('deviceready', onDeviceReady, false)
 
     function onDeviceReady() {
+        myApp.showPreloader()
         let asyncProcess = null
         instance[4].setClient(appUrl)
         initPromptTitle('查詢訂單', '請輸入訂單編號')
         initOpenPreloader()
         newOrderClick()
+        delOldOrderClick()
         checkLocalStorage()
         newDrinkGen()
     }
@@ -55,6 +52,7 @@
             let imgUrl = info.value[0].contentUrl
             instance[2].setMenu('<img src="' + imgUrl + '" width="100%">')
             instance[2].updateUI()
+            myApp.hidePreloader()
         })
     }
 
@@ -62,6 +60,8 @@
         if (localStorage.getItem('tempOrder') !== null) {
             instance[0].setElement(document.getElementById('newOrder'))
             instance[0].disable()
+            instance[0].setElement(document.getElementById('orderManagement'))
+            instance[0].enable()
             instance[0].setElement(document.getElementById('oldOrderID'))
             instance[0].html(JSON.parse(localStorage.getItem('tempOrder')).orderID)
             instance[0].setElement(document.getElementById('oldName'))
@@ -69,6 +69,8 @@
         } else {
             instance[0].setElement(document.getElementById('orderManagement'))
             instance[0].disable()
+            instance[0].setElement(document.getElementById('newOrder'))
+            instance[0].enable()
         }
     }
 
@@ -108,9 +110,27 @@
                     instance[0].enable()
                     instance[0].setElement(document.getElementById('newOrder'))
                     instance[0].disable()
+                    checkLocalStorage()
                     mainView.router.back()
                     myApp.hidePreloader()
                 })
+            })
+        })
+    }
+
+    function delOldOrderClick() {
+        instance[0].setElement(document.getElementById('delOldOrder'))
+        instance[0].click(() => {
+            myApp.showPreloader()
+            instance[4].setTable('order')
+            instance[4].selectByOrderID(JSON.parse(localStorage.getItem('tempOrder')).orderID).then((id) => {
+                console.log(id)
+                return instance[4].deleteData(id)
+            }).then(() => {
+                localStorage.removeItem('tempOrder')
+                checkLocalStorage()
+                mainView.router.back()
+                myApp.hidePreloader()
             })
         })
     }
