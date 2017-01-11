@@ -180,15 +180,31 @@ class customerInfo extends customHTMLElement {
 // 後端連接模組
 const _instanceAzure = Symbol('instanceAzure')
 const _clientAzure = Symbol('clientAzure')
+const _tableAzure = Symbol('tableAzure')
 class azureMobileApp extends customHTMLElement {
     constructor() {
         super()
         this[_instanceAzure] = null
         this[_clientAzure] = null
+        this[_tableAzure] = null
     }
 
     setClient(url) {
         this[_clientAzure] = new WindowsAzure.MobileServiceClient(url)
+    }
+
+    setTable(name) {
+        this[_tableAzure] = this[_clientAzure].getTable(name)
+    }
+
+    insertTable(data) {
+        return new Promise((resolve, reject) => {
+            this[_tableAzure].insert(data).done((insertedItem) => {
+                resolve(insertedItem)
+            }, (error) => {
+                reject('Error loading data: ' + error)
+            })
+        })
     }
 
     randomDrinkAsync(location) { // 隨機該位置找出附近飲料店
