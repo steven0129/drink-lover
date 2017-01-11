@@ -22,7 +22,6 @@
 
     function onDeviceReady() {
         myApp.showPreloader()
-        let asyncProcess = null
         instance[4].setClient(appUrl)
         initPromptTitle('查詢訂單', '請輸入訂單編號')
         initOpenPreloader()
