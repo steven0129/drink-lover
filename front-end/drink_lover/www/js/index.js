@@ -7,6 +7,33 @@
         domCache: true
     })
 
+    myApp.autocomplete({
+        openIn: 'popup', //open in popup
+        opener: $$('#autocomplete-standalone-popup'), //link that opens autocomplete
+        backOnSelect: true, //go back after we select something
+        searchbarPlaceholderText: '輸入新飲料名稱',
+        source: function (autocomplete, query, render) {
+            var results = [];
+            var fruits = ['高宇哲', '陳拓安']
+            if (query.length === 0) {
+                render(results);
+                return;
+            }
+            // Find matched items
+            for (var i = 0; i < fruits.length; i++) {
+                if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+            }
+            // Render items by passing array with result items
+            render(results);
+        },
+        onChange: function (autocomplete, value) {
+            // Add item text value to item-after
+            $$('#autocomplete-standalone-popup').find('.item-after').text(value[0]);
+            // Add item value to input value
+            $$('#autocomplete-standalone-popup').find('input').val(value[0]);
+        }
+    })
+
     var appUrl = 'https://drink-lover.azurewebsites.net'
     var instance = [
         (new customHTMLElement).getInstance(),
@@ -21,7 +48,6 @@
     document.addEventListener('deviceready', onDeviceReady, false)
 
     function onDeviceReady() {
-        myApp.showPreloader()
         instance[4].setClient(appUrl)
         initPromptTitle('查詢訂單', '請輸入訂單編號')
         initOpenPreloader()
@@ -32,6 +58,7 @@
     }
 
     function newDrinkGen() {
+        myApp.showPreloader()
         instance[4].randomDrinkAsync('24.113305, 120.662819').then((info) => {
             let random = instance[6].getRandomInt(0, info.results.length - 1)
             let bestResult = info.results[random]
@@ -123,8 +150,8 @@
             myApp.showPreloader()
             instance[4].setTable('order')
             instance[4].selectByOrderID(JSON.parse(localStorage.getItem('tempOrder')).orderID).then((id) => {
-                console.log(id)
                 return instance[4].deleteData(id)
+
             }).then(() => {
                 localStorage.removeItem('tempOrder')
                 checkLocalStorage()

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://drink-lover.azurewebsites.net; style-src 'self'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://drink-lover.azurewebsites.net; style-src 'self'; media-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -193,10 +193,26 @@
 
                 <div data-page="inquireOrder" class="page cached">
                     <div class="page-content">
-                        <!--<div class="content-block">-->
-                        <!--<p>You may go <a href="#" class="back">back</a> or load <a href="#about">About</a> page.</p>-->
+                        <div class="content-block-title">加入新飲料</div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <a href="#" id="autocomplete-standalone-popup" class="item-link item-content autocomplete-opener">
+                                        <input type="hidden">
+                                        <div class="item-inner">
+                                            <div class="item-title">新飲料</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                        <!--</div>-->
+                        <p>
+                            <a href="#" class="button button-round">加入</a>
+                        </p>
+
+                        <div class="content-block-title">飲料列表</div>
                         <div class="list-block">
                             <ul>
                                 <li class="swipeout">
@@ -205,8 +221,7 @@
                                         <div class="item-inner">...</div>
                                     </div>
                                     <div class="swipeout-actions-right">
-                                        <a href="#">Update</a>
-                                        <a href="#" class="swipeout-delete" data-confirm="Are you sure want to delete this item?" data-confirm-title="Delete?">Delete</a>
+                                        <a href="#" class="swipeout-delete" data-confirm="請問您確定要刪除此項目嗎?" data-confirm-title="Delete?">Delete</a>
                                     </div>
                                 </li>
                             </ul>
@@ -216,146 +231,6 @@
             </div>
         </div>
     </div>
-
-    <!--<div class="section">
-        <div>
-            <a class="navbar-brand pull-left">Drink Lover</a>
-        </div>
-    </div>
-
-
-    <div class="container">
-        <br />
-
-        <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4 class="text-center">商家資訊</h4>
-                    </div>
-                    <div class="panel-body text-center">
-                        <p class="lead">
-                            <strong id="drinkName">無資料</strong>
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item liitem"><strong>地址:</strong>
-                            <span id="address" class="pull-right">無資料</span>
-                        </li>
-                        <li class="list-group-item liitem"><strong>營業狀態:</strong>
-                            <span id="opening" class="pull-right">無資料</span>
-                        </li>
-                        <li class="list-group-item liitem"><strong>google社群評等</strong>
-                            <span class="pull-right"><font id="rating">無資料</font>&nbsp;<font>/&nbsp;5</font></span>
-                        </li>
-                    </ul>
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-xs-4 col-sm-3 col-md-4 col-lg-2">
-                            </div>
-                            <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4" id="map">
-                            </div>
-                            <div class="col-xs-6 col-sm-5 col-md-4 col-lg-6">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <button type="button" id="orderServerBtn" class="btn btn-primary btn-lg btn-block">產生訂單</button>
-                            </div>
-
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <button type="button" id="orderClientBtn" class="btn btn-primary btn-lg btn-block">訂飲料</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" id="orderServer">
-            <div class="col-sm-6 col-lg-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4 class="text-center">產生訂單</h4>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <p class="lead">
-                            <strong>訂單編號:</strong>
-                            <strong id="orderID">無資料</strong>
-                        </p>
-
-                        <p class="lead">
-                            <img id="menu1" alt="載入菜單中...." width="90%">
-                        </p>
-                    </div>
-
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <button id="insertMenuBtn" type="button" class="btn btn-primary btn-lg btn-block">產生訂單</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" id="orderClient">
-            <div class="col-sm-6 col-lg-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4 class="text-center">我要訂飲料</h4>
-                    </div>
-                    <div class="panel-body text-center">
-                        <p class="lead">
-                            <strong>無資料</strong>
-                        </p>
-
-                        <p class="lead">
-                            <input type="text" class="form-control" id="menuID" placeholder="輸入訂單編號">
-                        </p>
-
-                        <p class="lead">
-                            <img id="menu2" alt="載入菜單中...." width="90%">
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item liitem"><strong>無資料:</strong>
-                            <span class="pull-right">無資料</span>
-                        </li>
-                    </ul>
-
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon1">姓名</span>
-                                    <input type="text" class="form-control" placeholder="Your Name" aria-describedby="sizing-addon1">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon2">飲料</span>
-                                    <input type="text" class="form-control" placeholder="Your Drink" aria-describedby="sizing-addon2">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <button type="button" class="btn btn-primary btn-lg btn-block">訂飲料</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="./bower_components/framework7/dist/js/framework7.min.js"></script>
     <script type="text/javascript" src="./js/index-lib.js"></script>
