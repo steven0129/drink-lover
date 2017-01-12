@@ -1,7 +1,19 @@
 (function () {
     "use strict";
+    var instance = [
+        (new customHTMLElement).getInstance(),
+        (new drinkInfo).getInstance(),
+        (new orderInfo).getInstance(),
+        (new customerInfo).getInstance(),
+        (new azureMobileApp).getInstance(),
+        (new localSensor).getInstance(),
+        (new mathPlugin).getInstance(),
+        (new imageProcess).getInstance()
+    ]
+
     var myApp = new Framework7({ animateNavBackIcon: true })
     var $$ = Dom7
+    var appUrl = 'https://drink-lover.azurewebsites.net'
     var mainView = myApp.addView('.view-main', {
         dynamicNavbar: true,
         domCache: true
@@ -12,38 +24,18 @@
         opener: $$('#autocomplete-standalone-popup'), //link that opens autocomplete
         backOnSelect: true, //go back after we select something
         searchbarPlaceholderText: '輸入新飲料名稱',
-        source: function (autocomplete, query, render) {
-            var results = [];
-            var fruits = ['高宇哲', '陳拓安']
-            if (query.length === 0) {
-                render(results);
-                return;
-            }
-            // Find matched items
-            for (var i = 0; i < fruits.length; i++) {
-                if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
-            }
-            // Render items by passing array with result items
-            render(results);
+        source: (autocomplete, query, render) => {
+            let results = []
+            let drinks = ['綠茶'] // TODO: 加入與後端連接
+            results.push(query)
+            drinks.map((value, index) => results.push(drinks[index]))
+            render(results)
         },
-        onChange: function (autocomplete, value) {
-            // Add item text value to item-after
-            $$('#autocomplete-standalone-popup').find('.item-after').text(value[0]);
-            // Add item value to input value
-            $$('#autocomplete-standalone-popup').find('input').val(value[0]);
+        onChange: (autocomplete, value) => {
+            $$('#autocomplete-standalone-popup').find('.item-after').text(value[0])
+            $$('#autocomplete-standalone-popup').find('input').val(value[0])
         }
     })
-
-    var appUrl = 'https://drink-lover.azurewebsites.net'
-    var instance = [
-        (new customHTMLElement).getInstance(),
-        (new drinkInfo).getInstance(),
-        (new orderInfo).getInstance(),
-        (new customerInfo).getInstance(),
-        (new azureMobileApp).getInstance(),
-        (new localSensor).getInstance(),
-        (new mathPlugin).getInstance()
-    ]
 
     document.addEventListener('deviceready', onDeviceReady, false)
 
@@ -112,6 +104,11 @@
         instance[0].setElement(document.querySelector('.prompt-title-ok'))
         instance[0].click(() => {
             myApp.prompt(content, title, (value) => {
+                instance[0].setElement(document.querySelector('#addCustomer'))
+                instance[0].click(() => {
+                    instance[3].add(document.querySelector('#newCustomerName').innerHTML)
+                    instance[3].updateUI()
+                })
                 mainView.router.loadPage('#inquireOrder')
             })
         })

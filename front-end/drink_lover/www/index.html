@@ -201,30 +201,25 @@
                                         <input type="hidden">
                                         <div class="item-inner">
                                             <div class="item-title">新飲料</div>
-                                            <div class="item-after"></div>
+                                            <div id="newCustomerName" class="item-after"></div>
                                         </div>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-
-                        <p>
-                            <a href="#" class="button button-round">加入</a>
-                        </p>
+                        <div class="content-block">
+                            <p>
+                                <div class="row">
+                                    <div class="col-100">
+                                        <a id="addCustomer" class="button">加入</a>
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
 
                         <div class="content-block-title">飲料列表</div>
                         <div class="list-block">
-                            <ul>
-                                <li class="swipeout">
-                                    <div class="swipeout-content item-content">
-                                        <div class="item-media">...</div>
-                                        <div class="item-inner">...</div>
-                                    </div>
-                                    <div class="swipeout-actions-right">
-                                        <a href="#" class="swipeout-delete" data-confirm="請問您確定要刪除此項目嗎?" data-confirm-title="Delete?">Delete</a>
-                                    </div>
-                                </li>
-                            </ul>
+                            <ul id="customer-list"></ul>
                         </div>
                     </div>
                 </div>

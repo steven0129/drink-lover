@@ -35,6 +35,10 @@ class customHTMLElement { // html UI重寫
         this[_element].addEventListener('click', callback)
     }
 
+    getHtml() {
+        return this[_element].innerHTML
+    }
+
     getInstance() {
         if (!this[_instance1]) this[_instance1] = new customHTMLElement()
         return this[_instance1]
@@ -159,16 +163,31 @@ class customerInfo extends customHTMLElement {
         this[_customer] = new Array()
     }
 
-    remove(name) {
-        delete this[_customer][name]
+    remove(index) {
+        this[_customer].splice(index, 1)
     }
 
-    add(name, message) {
-        this[_customer][name] = message
+    add(message) {
+        this[_customer].push(message)
     }
 
     get() {
         return this[_customer]
+    }
+
+    updateUI() {
+        let UI = document.querySelector('#customer-list')
+        UI.innerHTML = ''
+        this[_customer].map((value, index) => {
+            UI.innerHTML += '<li class="swipeout"> \
+                              <div class="swipeout-content item-content"> \
+                                   <div class="item-inner">'+ value + '</div> \
+                              </div> \
+                              <div class="swipeout-actions-right"> \
+                                    <a href="#" class="swipeout-delete" data-confirm="請問您確定要刪除此項目嗎?" data-confirm-title="Delete?">Delete</a> \
+                              </div> \
+                            </li>'
+        })
     }
 
     getInstance() {
@@ -321,5 +340,32 @@ class mathPlugin {
     getInstance() {
         if (!this[_instanceMath]) this[_instanceMath] = new mathPlugin()
         return this[_instanceMath]
+    }
+}
+
+const _instanceImage = Symbol('instanceImage')
+const _tempImage = Symbol('tempImage')
+class imageProcess {
+    constructor() {
+        this[_tempImage] = null
+    }
+
+    setImage(img) {
+        this[_tempImage] = img
+    }
+
+    getBase64Image() {
+        let canvas = document.createElement('canvas')
+        let ctx = canvas.getContext('2d')
+        let dataURL = canvas.toDataURL('image/png')
+        canvas.width = this[_tempImage].width
+        canvas.height = this[_tempImage].height
+        ctx.drawImage(this[_tempImage], 0, 0)
+        return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+    }
+
+    getInstance() {
+        if (!this[_instanceImage]) this[_instanceImage] = new imageProcess()
+        return this[_instanceImage]
     }
 }
