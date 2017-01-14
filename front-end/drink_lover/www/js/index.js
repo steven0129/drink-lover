@@ -43,6 +43,7 @@
         instance[4].setClient(appUrl)
         initPromptTitle('查詢訂單', '請輸入訂單編號')
         initOpenPreloader()
+        initDelete()
         newOrderClick()
         delOldOrderClick()
         checkLocalStorage()
@@ -102,6 +103,14 @@
         })
     }
 
+    function initDelete() {
+        $$('.swipeout').on('swipeout:deleted', (e) => {
+            let id = e.target.id
+            instance[4].setTable('menu')
+            instance[4].deleteData(id)
+        })
+    }
+
     function initPromptTitle(title, content) {
         instance[0].setElement(document.querySelector('.prompt-title-ok'))
         instance[0].click(() => {
@@ -124,13 +133,13 @@
                                 instance[4].insertTable({
                                     name: document.getElementById('newCustomerName').value,
                                     orderID: instance[3].getCustomerId()
+                                }).then((insertedItem) => {
+                                    instance[0].setElement(document.getElementById('customer-list'))
+                                    instance[0].addList(document.getElementById('newCustomerName').value, insertedItem.id)
+                                    document.getElementById('newCustomerName').value = ''
+                                    initDelete()
                                 })
-
-                                instance[0].setElement(document.getElementById('customer-list'))
-                                instance[0].addList(document.getElementById('newCustomerName').value)
-                                document.getElementById('newCustomerName').value = ''
                             })
-
                             resolve()
 
                         } else {
@@ -146,9 +155,10 @@
                 }).then((results) => {
                     instance[0].setElement(document.getElementById('customer-list'))
                     instance[0].html('')
-                    if (typeof (results) !== 'undefined') 
-                        results.map((value, index) => instance[0].addList(value.name))
+                    if (typeof (results) !== 'undefined')
+                        results.map((value, index) => instance[0].addList(value.name, value.id))
 
+                    initDelete()
                     mainView.router.loadPage('#inquireOrder')
                     myApp.hidePreloader()
                 })

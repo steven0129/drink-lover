@@ -43,8 +43,8 @@ class customHTMLElement { // html UI重寫
         return this[_element].value
     }
 
-    addList(str) {
-        this[_element].innerHTML += '<li class="swipeout"> \
+    addList(str, id) {
+        this[_element].innerHTML += '<li id="'+ id + '" class="swipeout"> \
         <div class="swipeout-content item-content"> \
             <div class="item-title">'+ str + '</div> \
         </div> \
