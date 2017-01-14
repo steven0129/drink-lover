@@ -193,28 +193,39 @@
 
                 <div data-page="inquireOrder" class="page cached">
                     <div class="page-content">
-                        <div class="content-block-title">加入新飲料</div>
-                        <div class="list-block">
-                            <ul>
-                                <li>
-                                    <a href="#" id="autocomplete-standalone-popup" class="item-link item-content autocomplete-opener">
-                                        <input type="hidden">
-                                        <div class="item-inner">
-                                            <div class="item-title">新飲料</div>
-                                            <div id="newCustomerName" class="item-after"></div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="content-block">
-                            <p>
-                                <div class="row">
-                                    <div class="col-100">
-                                        <a id="addCustomer" class="button">加入</a>
+                            <div class="card facebook-card">
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p id="inquireName"></p>
+                                        <p id="inquireMenu"></p>
+                                        <p class="color-gray">訂單編號：
+                                            <font id="inquireOrderID"></font>
+                                        </p>
                                     </div>
                                 </div>
-                            </p>
+                                <div class="card-footer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="my-form" class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">新飲料</div>
+                                            <div class="item-input">
+                                                <input id="newCustomerName" type="text" placeholder="輸入您要加入的新飲料">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+
+                        <div class="content-block">
+                            <a href="#" id="addCustomer" class="button">加入新飲料</a>
                         </div>
 
                         <div class="content-block-title">飲料列表</div>

@@ -39,6 +39,20 @@ class customHTMLElement { // html UI重寫
         return this[_element].innerHTML
     }
 
+    getValue() {
+        return this[_element].value
+    }
+
+    addList(str) {
+        this[_element].innerHTML += '<li class="swipeout"> \
+        <div class="swipeout-content item-content"> \
+            <div class="item-title">'+ str + '</div> \
+        </div> \
+        <div class="swipeout-actions-right"> \
+            <a href="#" class="swipeout-delete" data-confirm="您確定要刪除此筆資料?" data-confirm-title="Delete?">Delete</a> \
+        </div></li>'
+    }
+
     getInstance() {
         if (!this[_instance1]) this[_instance1] = new customHTMLElement()
         return this[_instance1]
@@ -96,7 +110,6 @@ class drinkInfo extends customHTMLElement { // 隨選飲料店資訊
 
     updateUI() {
         Object.keys(this[_infoDrink]).map((key1, index1) => {
-
             let object = document.querySelectorAll('[name=' + key1 + ']')
             Object.keys(object).map((key2, index2) => object[index2].innerHTML = this[_infoDrink][key1])
         })
@@ -216,7 +229,7 @@ class azureMobileApp extends customHTMLElement {
         this[_tableAzure] = this[_clientAzure].getTable(name)
     }
 
-    selectByOrderID(orderID) {
+    selectIDByOrderID(orderID) {
         return new Promise((resolve, reject) => {
             this[_tableAzure]
                 .where({
@@ -225,6 +238,21 @@ class azureMobileApp extends customHTMLElement {
                 .read()
                 .then((results) => {
                     resolve(results[0].id)
+                }, (error) => {
+                    reject(error)
+                })
+        })
+    }
+
+    selectAllByOrderID(orderID) {
+        return new Promise((resolve, reject) => {
+            this[_tableAzure]
+                .where({
+                    orderID: orderID
+                })
+                .read()
+                .then((results) => {
+                    resolve(results)
                 }, (error) => {
                     reject(error)
                 })
@@ -283,10 +311,8 @@ class azureMobileApp extends customHTMLElement {
                 body: { q: str },
                 method: 'POST'
             }).done((results) => {
-                let info = JSON.parse(results.responseText)
-                resolve(info)
-            }, (error) => {
-                reject('error: ' + error.message)
+                let json = JSON.parse(results.responseText)
+                resolve(json)
             })
         })
     }

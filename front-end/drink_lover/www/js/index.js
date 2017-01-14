@@ -19,23 +19,23 @@
         domCache: true
     })
 
-    myApp.autocomplete({
-        openIn: 'popup', //open in popup
-        opener: $$('#autocomplete-standalone-popup'), //link that opens autocomplete
-        backOnSelect: true, //go back after we select something
-        searchbarPlaceholderText: '輸入新飲料名稱',
-        source: (autocomplete, query, render) => {
-            let results = []
-            let drinks = ['綠茶'] // TODO: 加入與後端連接
-            results.push(query)
-            drinks.map((value, index) => results.push(drinks[index]))
-            render(results)
-        },
-        onChange: (autocomplete, value) => {
-            $$('#autocomplete-standalone-popup').find('.item-after').text(value[0])
-            $$('#autocomplete-standalone-popup').find('input').val(value[0])
-        }
-    })
+    // myApp.autocomplete({
+    //     openIn: 'popup', //open in popup
+    //     opener: $$('#autocomplete-standalone-popup'), //link that opens autocomplete
+    //     backOnSelect: true, //go back after we select something
+    //     searchbarPlaceholderText: '輸入新飲料名稱',
+    //     source: (autocomplete, query, render) => {
+    //         let results = []
+    //         let drinks = ['綠茶'] // TODO: 加入與後端連接
+    //         results.push(query)
+    //         drinks.map((value, index) => results.push(drinks[index]))
+    //         render(results)
+    //     },
+    //     onChange: (autocomplete, value) => {
+    //         $$('#autocomplete-standalone-popup').find('.item-after').text(value[0])
+    //         $$('#autocomplete-standalone-popup').find('input').val(value[0])
+    //     }
+    // })
 
     document.addEventListener('deviceready', onDeviceReady, false)
 
@@ -64,10 +64,10 @@
 
         }).then((orderID) => {
             instance[2].setOrderID(orderID)
-            return instance[4].searchMenuImgAsync(instance[2].getInfo().name)
+            return instance[4].searchMenuImgAsync(instance[1].getInfo().name)
 
         }).then((info) => {
-            let imgUrl = info.value[0].contentUrl
+            let imgUrl = info.images.value[0].contentUrl
             instance[2].setMenu('<img src="' + imgUrl + '" width="100%">')
             instance[2].updateUI()
             myApp.hidePreloader()
@@ -84,6 +84,8 @@
             instance[0].html(JSON.parse(localStorage.getItem('tempOrder')).orderID)
             instance[0].setElement(document.getElementById('oldName'))
             instance[0].html(JSON.parse(localStorage.getItem('tempOrder')).name)
+            instance[0].setElement(document.getElementById('oldMenu'))
+            instance[0].html(JSON.parse(localStorage.getItem('tempOrder')).menu)
         } else {
             instance[0].setElement(document.getElementById('orderManagement'))
             instance[0].disable()
@@ -104,12 +106,31 @@
         instance[0].setElement(document.querySelector('.prompt-title-ok'))
         instance[0].click(() => {
             myApp.prompt(content, title, (value) => {
-                instance[0].setElement(document.querySelector('#addCustomer'))
-                instance[0].click(() => {
-                    instance[3].add(document.querySelector('#newCustomerName').innerHTML)
-                    instance[3].updateUI()
+                myApp.showPreloader()
+                instance[4].setTable('order')
+                instance[4].selectAllByOrderID(value).then((results) => {
+                    if (typeof (results[0]) !== 'undefined') {
+                        instance[0].setElement(document.getElementById('inquireName'))
+                        instance[0].html(results[0].name)
+                        instance[0].setElement(document.getElementById('inquireOrderID'))
+                        instance[0].html(results[0].orderID)
+                        instance[0].setElement(document.getElementById('inquireMenu'))
+                        instance[0].html(results[0].menu)
+                        instance[0].setElement(document.getElementById('addCustomer'))
+                        instance[0].click(() => {
+                            instance[0].setElement(document.getElementById('customer-list'))
+                            instance[0].addList(document.getElementById('newCustomerName').value)
+                            document.getElementById('newCustomerName').value = ''
+                        })
+
+                        mainView.router.loadPage('#inquireOrder')
+                        myApp.hidePreloader()
+                    } else {
+                        myApp.alert('查無此訂單')
+                        myApp.hidePreloader()
+                    }
+
                 })
-                mainView.router.loadPage('#inquireOrder')
             })
         })
     }
@@ -122,10 +143,12 @@
                 instance[4].setTable('order')
                 instance[4].insertTable({
                     orderID: instance[2].getInfo().orderID,
+                    menu: instance[2].getInfo().menu,
                     name: instance[1].getInfo().name
                 }).then((insertedItem) => {
                     localStorage.setItem('tempOrder', JSON.stringify({
                         orderID: instance[2].getInfo().orderID,
+                        menu: instance[2].getInfo().menu,
                         name: instance[1].getInfo().name
                     }))
 
@@ -146,7 +169,7 @@
         instance[0].click(() => {
             myApp.showPreloader()
             instance[4].setTable('order')
-            instance[4].selectByOrderID(JSON.parse(localStorage.getItem('tempOrder')).orderID).then((id) => {
+            instance[4].selectIDByOrderID(JSON.parse(localStorage.getItem('tempOrder')).orderID).then((id) => {
                 return instance[4].deleteData(id)
 
             }).then(() => {
