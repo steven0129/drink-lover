@@ -109,27 +109,48 @@
                 myApp.showPreloader()
                 instance[4].setTable('order')
                 instance[4].selectAllByOrderID(value).then((results) => {
-                    if (typeof (results[0]) !== 'undefined') {
-                        instance[0].setElement(document.getElementById('inquireName'))
-                        instance[0].html(results[0].name)
-                        instance[0].setElement(document.getElementById('inquireOrderID'))
-                        instance[0].html(results[0].orderID)
-                        instance[0].setElement(document.getElementById('inquireMenu'))
-                        instance[0].html(results[0].menu)
-                        instance[0].setElement(document.getElementById('addCustomer'))
-                        instance[0].click(() => {
-                            instance[0].setElement(document.getElementById('customer-list'))
-                            instance[0].addList(document.getElementById('newCustomerName').value)
-                            document.getElementById('newCustomerName').value = ''
-                        })
+                    return new Promise((resolve, reject) => {
+                        if (typeof (results[0]) !== 'undefined') {
+                            instance[0].setElement(document.getElementById('inquireName'))
+                            instance[0].html(results[0].name)
+                            instance[0].setElement(document.getElementById('inquireOrderID'))
+                            instance[0].html(results[0].orderID)
+                            instance[3].setCustomerId(results[0].orderID)
+                            instance[0].setElement(document.getElementById('inquireMenu'))
+                            instance[0].html(results[0].menu)
+                            instance[0].setElement(document.getElementById('addCustomer'))
+                            instance[0].click(() => {
+                                instance[4].setTable('menu')
+                                instance[4].insertTable({
+                                    name: document.getElementById('newCustomerName').value,
+                                    orderID: instance[3].getCustomerId()
+                                })
 
-                        mainView.router.loadPage('#inquireOrder')
-                        myApp.hidePreloader()
-                    } else {
-                        myApp.alert('查無此訂單')
-                        myApp.hidePreloader()
-                    }
+                                instance[0].setElement(document.getElementById('customer-list'))
+                                instance[0].addList(document.getElementById('newCustomerName').value)
+                                document.getElementById('newCustomerName').value = ''
+                            })
 
+                            resolve()
+
+                        } else {
+                            myApp.alert('查無此訂單')
+                            myApp.hidePreloader()
+                            reject()
+                        }
+                    })
+
+                }).then(() => {
+                    instance[4].setTable('menu')
+                    return instance[4].selectAllByOrderID(value)
+                }).then((results) => {
+                    instance[0].setElement(document.getElementById('customer-list'))
+                    instance[0].html('')
+                    if (typeof (results) !== 'undefined') 
+                        results.map((value, index) => instance[0].addList(value.name))
+
+                    mainView.router.loadPage('#inquireOrder')
+                    myApp.hidePreloader()
                 })
             })
         })

@@ -169,11 +169,21 @@ class orderInfo extends customHTMLElement {
 // 客戶資訊模組
 const _instancecustomer = Symbol('instancecustomer')
 const _customer = Symbol('customer')
+const _customerId = Symbol('customerId')
 class customerInfo extends customHTMLElement {
     constructor() {
         super()
         this[_instancecustomer] = null
+        this[_customerId] = null
         this[_customer] = new Array()
+    }
+
+    setCustomerId(id) {
+        this[_customerId] = id
+    }
+
+    getCustomerId() {
+        return this[_customerId]
     }
 
     remove(index) {
