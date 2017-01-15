@@ -3,162 +3,253 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://drink-lover.azurewebsites.net; style-src 'self'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://drink-lover.azurewebsites.net; style-src 'self'; media-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="./css/normalize.min.css" />
-    <link rel="stylesheet" type="text/css" href="./css/bootstraplayout.css" />
-    <link rel="stylesheet" type="text/css" href="./css/shieldui-all.min.css" />
-    <link rel="stylesheet" type="text/css" href="./css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
-    <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="./js/shieldui-all.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./bower_components/framework7/dist/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="./css/my-app.css">
     <title>Drink Lover</title>
 </head>
 
 <body>
-    <div class="section">
-        <div>
-            <a class="navbar-brand pull-left">Drink Lover</a>
-        </div>
-    </div>
+    <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+    <div class="views">
+        <div class="view view-main">
+            <div class="navbar">
+                <div data-page="index" class="navbar-inner">
+                    <div class="center sliding">Drink Lover</div>
+                </div>
 
-
-    <div class="container">
-        <br />
-
-        <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4 class="text-center">商家資訊</h4>
+                <div data-page="newOrder" class="navbar-inner cached">
+                    <div class="left sliding">
+                        <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a>
                     </div>
-                    <div class="panel-body text-center">
-                        <p class="lead">
-                            <strong id="drinkName">無資料</strong>
-                        </p>
+                    <div class="center sliding">產生訂單</div>
+                </div>
+
+
+                <div data-page="orderManagement" class="navbar-inner cached">
+                    <div class="left sliding">
+                        <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item liitem"><strong>地址:</strong>
-                            <span id="address" class="pull-right">無資料</span>
-                        </li>
-                        <li class="list-group-item liitem"><strong>營業狀態:</strong>
-                            <span id="opening" class="pull-right">無資料</span>
-                        </li>
-                        <li class="list-group-item liitem"><strong>google社群評等</strong>
-                            <span class="pull-right"><font id="rating">無資料</font>&nbsp;<font>/&nbsp;5</font></span>
-                        </li>
-                    </ul>
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-xs-4 col-sm-3 col-md-4 col-lg-2">
-                            </div>
-                            <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4" id="map">
-                            </div>
-                            <div class="col-xs-6 col-sm-5 col-md-4 col-lg-6">
-                            </div>
+                    <div class="center sliding">訂單管理</div>
+                </div>
+
+                <div data-page="inquireOrder" class="navbar-inner cached">
+                    <div class="left sliding">
+                        <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a>
+                    </div>
+                    <div class="center sliding">查詢其他訂單</div>
+                </div>
+
+                <div data-page="about" class="navbar-inner cached">
+                    <div class="left sliding">
+                        <a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a>
+                    </div>
+                    <div class="center sliding">關於我們</div>
+                </div>
+            </div>
+
+            <div class="pages navbar-through toolbar-through">
+                <div data-page="index" class="page">
+                    <div class="page-content">
+                        <div class="content-block-title">隨選飲料店</div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">店家名稱</div>
+                                            <div name="name" class="item-after">無資料</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">地址</div>
+                                            <div name="address" class="item-after">無資料</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">營業狀態</div>
+                                            <div name="status" class="item-after">無資料</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Google社群評等</div>
+                                            <div name="rating" class="item-after">無資料</div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="accordion-item">
+                                    <a href="#" class="item-content item-link">
+                                        <div class="item-inner">
+                                            <div class="item-title">地圖</div>
+                                        </div>
+                                    </a>
+                                    <div class="accordion-item-content">
+                                        <div class="content-block">
+                                            <p name="map">Item 1 content. Lorem ipsum dolor sit amet...</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <button type="button" id="orderServerBtn" class="btn btn-primary btn-lg btn-block">產生訂單</button>
-                            </div>
+                        <div class="content-block">
+                            <p>
+                                <div class="row">
+                                    <div class="col-100">
+                                        <a id="refresh" href="#" class="button">重新整理</a>
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
 
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <button type="button" id="orderClientBtn" class="btn btn-primary btn-lg btn-block">訂飲料</button>
+                        <div class="content-block-title">開始訂飲料</div>
+                        <div class="content-block">
+                            <p>
+                                <div class="row">
+                                    <div class="col-50">
+                                        <a id="newOrder" href="#newOrder" class="button">產生訂單</a>
+                                    </div>
+
+                                    <div class="col-50">
+                                        <a id="orderManagement" href="#orderManagement" class="button">訂單管理</a>
+                                    </div>
+                                </div>
+                            </p>
+
+                            <p>
+                                <div class="row">
+                                    <div class="col-50">
+                                        <a href="#" class="button prompt-title-ok">查詢其他訂單</a>
+                                    </div>
+                                    <div class="col-50">
+                                        <a id="about-us" href="#about" class="button">關於我們</a>
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-page="about" class="page cached">
+                    <div class="page-content">
+                        <div class="content-block">
+                            <p>開發者：高宇哲<br>版本資訊：1.0.0<br>開放原始碼：https://github.com/Yu-Che-Gao/drink-lover</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-page="newOrder" class="page cached">
+                    <div class="page-content">
+                        <div class="content-block">
+                            <div class="card facebook-card">
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p name="name"></p>
+                                        <p name="menu"></p>
+                                        <p class="color-gray">訂單編號：
+                                            <font name="orderID"></font>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="link"></a>
+                                    <a href="#" class="link"></a>
+                                    <a href="#" class="link orderGen open-preloader">產生訂單</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row" id="orderServer">
-            <div class="col-sm-6 col-lg-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4 class="text-center">產生訂單</h4>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <p class="lead">
-                            <strong>訂單編號:</strong>
-                            <strong id="orderID">無資料</strong>
-                        </p>
-
-                        <p class="lead">
-                            <img id="menu1" alt="載入菜單中...." width="90%">
-                        </p>
-                    </div>
-
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <button id="insertMenuBtn" type="button" class="btn btn-primary btn-lg btn-block">產生訂單</button>
+                <div data-page="orderManagement" class="page cached">
+                    <div class="page-content">
+                        <div class="content-block">
+                            <div class="card facebook-card">
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p id="oldName"></p>
+                                        <p id="oldMenu"></p>
+                                        <p class="color-gray">訂單編號：
+                                            <font id="oldOrderID"></font>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="link"></a>
+                                    <a href="#" class="link"></a>
+                                    <a id="delOldOrder" href="#" class="link">刪除訂單</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row" id="orderClient">
-            <div class="col-sm-6 col-lg-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h4 class="text-center">我要訂飲料</h4>
-                    </div>
-                    <div class="panel-body text-center">
-                        <p class="lead">
-                            <strong>無資料</strong>
-                        </p>
-
-                        <p class="lead">
-                            <input type="text" class="form-control" id="menuID" placeholder="輸入訂單編號">
-                        </p>
-
-                        <p class="lead">
-                            <img id="menu2" alt="載入菜單中...." width="90%">
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item liitem"><strong>無資料:</strong>
-                            <span class="pull-right">無資料</span>
-                        </li>
-                    </ul>
-
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon1">姓名</span>
-                                    <input type="text" class="form-control" placeholder="Your Name" aria-describedby="sizing-addon1">
+                <div data-page="inquireOrder" class="page cached">
+                    <div class="page-content">
+                        <div class="content-block">
+                            <div class="card facebook-card">
+                                <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p id="inquireName"></p>
+                                        <p id="inquireMenu"></p>
+                                        <p class="color-gray">訂單編號：
+                                            <font id="inquireOrderID"></font>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon2">飲料</span>
-                                    <input type="text" class="form-control" placeholder="Your Drink" aria-describedby="sizing-addon2">
-                                </div>
-                            </div>
+                        <form id="my-form" class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">新飲料</div>
+                                            <div class="item-input">
+                                                <input id="newCustomerName" type="text" placeholder="輸入您要加入的新飲料">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+
+                        <div class="content-block">
+                            <a href="#" id="addCustomer" class="button">加入新飲料</a>
                         </div>
 
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <button type="button" class="btn btn-primary btn-lg btn-block">訂飲料</button>
-                            </div>
+                        <div class="content-block-title">飲料列表</div>
+                        <div class="list-block">
+                            <ul id="customer-list"></ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="./js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="./bower_components/framework7/dist/js/framework7.min.js"></script>
+    <script type="text/javascript" src="./js/index-lib.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
 
 </body>
