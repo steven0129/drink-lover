@@ -19,24 +19,6 @@
         domCache: true
     })
 
-    // myApp.autocomplete({
-    //     openIn: 'popup', //open in popup
-    //     opener: $$('#autocomplete-standalone-popup'), //link that opens autocomplete
-    //     backOnSelect: true, //go back after we select something
-    //     searchbarPlaceholderText: '輸入新飲料名稱',
-    //     source: (autocomplete, query, render) => {
-    //         let results = []
-    //         let drinks = ['綠茶'] // TODO: 加入與後端連接
-    //         results.push(query)
-    //         drinks.map((value, index) => results.push(drinks[index]))
-    //         render(results)
-    //     },
-    //     onChange: (autocomplete, value) => {
-    //         $$('#autocomplete-standalone-popup').find('.item-after').text(value[0])
-    //         $$('#autocomplete-standalone-popup').find('input').val(value[0])
-    //     }
-    // })
-
     document.addEventListener('deviceready', onDeviceReady, false)
 
     function onDeviceReady() {
@@ -47,12 +29,19 @@
         newOrderClick()
         delOldOrderClick()
         checkLocalStorage()
-        newDrinkGen()
+        refreshButton()
+
+        navigator.geolocation.getCurrentPosition((position) => {
+            newDrinkGen(position.coords.latitude + ',' + position.coords.longitude)
+        }, (error) => {
+            myApp.alert('請開啟GPS')
+            navigator.app.exitApp()
+        })
     }
 
-    function newDrinkGen() {
+    function newDrinkGen(location) {
         myApp.showPreloader()
-        instance[4].randomDrinkAsync('24.113305, 120.662819').then((info) => {
+        instance[4].randomDrinkAsync(location).then((info) => {
             let random = instance[6].getRandomInt(0, info.results.length - 1)
             let bestResult = info.results[random]
             if (typeof (bestResult.name) !== 'undefined') instance[1].setName(bestResult.name)
@@ -72,6 +61,18 @@
             instance[2].setMenu('<img src="' + imgUrl + '" width="100%">')
             instance[2].updateUI()
             myApp.hidePreloader()
+        })
+    }
+
+    function refreshButton() {
+        instance[0].setElement(document.querySelector('#refresh'))
+        instance[0].click(() => {
+            navigator.geolocation.getCurrentPosition((position) => {
+                newDrinkGen(position.coords.latitude + ',' + position.coords.longitude)
+            }, (error) => {
+                myApp.alert('請開啟GPS')
+                navigator.app.exitApp()
+            })
         })
     }
 
@@ -203,6 +204,12 @@
             instance[4].selectIDByOrderID(JSON.parse(localStorage.getItem('tempOrder')).orderID).then((id) => {
                 return instance[4].deleteData(id)
 
+            }).catch((error) => {
+                console.log(error)
+                localStorage.removeItem('tempOrder')
+                checkLocalStorage()
+                mainView.router.back()
+                myApp.hidePreloader()
             }).then(() => {
                 localStorage.removeItem('tempOrder')
                 checkLocalStorage()
