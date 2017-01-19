@@ -44,7 +44,7 @@ class customHTMLElement { // html UI重寫
     }
 
     addList(str, id) {
-        this[_element].innerHTML += '<li id="'+ id + '" class="swipeout"> \
+        this[_element].innerHTML += '<li id="' + id + '" class="swipeout"> \
         <div class="swipeout-content item-content"> \
             <div class="item-title">'+ str + '</div> \
         </div> \
@@ -235,6 +235,10 @@ class azureMobileApp extends customHTMLElement {
         this[_clientAzure] = new WindowsAzure.MobileServiceClient(url)
     }
 
+    getClient() {
+        return this[_clientAzure]
+    }
+
     setTable(name) {
         this[_tableAzure] = this[_clientAzure].getTable(name)
     }
@@ -403,5 +407,46 @@ class imageProcess {
     getInstance() {
         if (!this[_instanceImage]) this[_instanceImage] = new imageProcess()
         return this[_instanceImage]
+    }
+}
+
+const _instanceFacebook = Symbol('instanceFacebook')
+const _tokenFacebook = Symbol('tokenFacebook')
+const _userNameFacebook = Symbol('_userNameFacebook')
+const _userIdFacebook = Symbol('_userIdFacebook')
+class facebookInfo {
+    constructor() {
+        this[_userIdFacebook] = null
+        this[_tokenFacebook] = null
+        this[_userNameFacebook] = null
+    }
+
+    setUserId(id) {
+        this[_userIdFacebook] = id
+    }
+
+    getUserId() {
+        return this[_userIdFacebook]
+    }
+
+    setUserName(name) {
+        this[_userNameFacebook] = name
+    }
+
+    getUserName() {
+        return this[_userNameFacebook]
+    }
+
+    setToken(token) {
+        this[_tokenFacebook] = token
+    }
+
+    getToken() {
+        return this[_tokenFacebook]
+    }
+
+    getInstance() {
+        if (!this[_instanceFacebook]) this[_instanceFacebook] = new facebookInfo()
+        return this[_instanceFacebook]
     }
 }

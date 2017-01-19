@@ -8,7 +8,8 @@
         (new azureMobileApp).getInstance(),
         (new localSensor).getInstance(),
         (new mathPlugin).getInstance(),
-        (new imageProcess).getInstance()
+        (new imageProcess).getInstance(),
+        (new facebookInfo).getInstance()
     ]
 
     var myApp = new Framework7({ animateNavBackIcon: true })
@@ -18,6 +19,8 @@
         dynamicNavbar: true,
         domCache: true
     })
+
+
 
     document.addEventListener('deviceready', onDeviceReady, false)
 
@@ -31,12 +34,52 @@
         checkLocalStorage()
         refreshButton()
 
-        navigator.geolocation.getCurrentPosition((position) => {
-            newDrinkGen(position.coords.latitude + ',' + position.coords.longitude)
-        }, (error) => {
-            myApp.alert('請開啟GPS')
-            navigator.app.exitApp()
+        // navigator.geolocation.getCurrentPosition((position) => {
+        //     newDrinkGen(position.coords.latitude + ',' + position.coords.longitude)
+        // }, (error) => {
+        //     myApp.alert('請開啟GPS')
+        //     navigator.app.exitApp()
+        // })
+
+        instance[0].setElement(document.querySelector('#auth'))
+        instance[0].hide()
+        instance[0].setElement(document.querySelector('#fbLoginButton'))
+        instance[0].click(() => {
+            let client = instance[4].getClient()
+            client.login('facebook').done((results) => {
+                let url = client.applicationUrl + '/.auth/me'
+                let headers = new Headers()
+                headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken)
+                fetch(url, { headers: headers })
+                    .then(function (data) {
+                        return data.json()
+                    }).then(function (user) {
+                        console.log(user)
+                        instance[8].setUserId(user[0].user_claims[0].val)
+                        instance[8].setUserName(user[0].user_claims[2].val)
+                        instance[0].setElement(document.querySelector('#facebookLogin'))
+                        instance[0].hide()
+                        instance[0].setElement(document.querySelector('#auth'))
+                        instance[0].show()
+                        myApp.alert(instance[8].getUserName() + '您好')
+                    })
+            }, (err) => {
+                myApp.alert('error: ' + error)
+            })
         })
+
+        instance[0].setElement(document.querySelector('#fbLogoutButton'))
+        instance[0].click(() => {
+            let client = instance[4].getClient()
+            client.logout().then(() => {
+                instance[0].setElement(document.querySelector('#facebookLogin'))
+                instance[0].show()
+                instance[0].setElement(document.querySelector('#auth'))
+                instance[0].hide()
+            })
+
+        })
+        newDrinkGen('25.024684,121.526914')
     }
 
     function newDrinkGen(location) {
@@ -67,12 +110,14 @@
     function refreshButton() {
         instance[0].setElement(document.querySelector('#refresh'))
         instance[0].click(() => {
-            navigator.geolocation.getCurrentPosition((position) => {
-                newDrinkGen(position.coords.latitude + ',' + position.coords.longitude)
-            }, (error) => {
-                myApp.alert('請開啟GPS')
-                navigator.app.exitApp()
-            })
+            // navigator.geolocation.getCurrentPosition((position) => {
+            //     newDrinkGen(position.coords.latitude + ',' + position.coords.longitude)
+            // }, (error) => {
+            //     myApp.alert('請開啟GPS')
+            //     navigator.app.exitApp()
+            // })
+
+            newDrinkGen('25.024684,121.526914')
         })
     }
 
