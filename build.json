@@ -1,0 +1,11 @@
+{
+     "android": {
+         "release": {
+             "keystore": "C:/Users/USER/Desktop/app-key/drinklover.keystore",
+             "storePassword": "drinklover",
+             "alias": "drinkloverkey",
+             "password" : "drinklover",
+             "keystoreType": "jks"
+         }
+     }
+ }
