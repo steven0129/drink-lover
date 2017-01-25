@@ -6,19 +6,23 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms.Platform.Android;
 
 namespace drink_lover.Droid
 {
-	[Activity (Label = "drink_lover", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
-	{
-		protected override void OnCreate (Bundle bundle)
-		{
-			base.OnCreate (bundle);
+    [Activity(Label = "drink_lover", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : FormsAppCompatActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
+            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
 
-			global::Xamarin.Forms.Forms.Init (this, bundle);
-			LoadApplication (new drink_lover.App ());
-		}
-	}
+            base.OnCreate(bundle);
+
+            global::Xamarin.Forms.Forms.Init(this, bundle);
+            LoadApplication(new drink_lover.App());
+        }
+    }
 }
 

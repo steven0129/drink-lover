@@ -12,6 +12,7 @@ namespace drink_lover
 		public MainPage()
 		{
 			InitializeComponent();
+            
 		}
 	}
 }

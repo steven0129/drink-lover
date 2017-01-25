@@ -26,6 +26,10 @@ Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Andr
 Android.Support.V4.View.ViewPager+IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager.IOnPageChangeListenerImplementor;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
+Android.Support.V4.Widget.NestedScrollView/IOnScrollChangeListenerImplementor, Xamarin.Android.Support.v4;mono.android.support.v4.widget.NestedScrollView_OnScrollChangeListenerImplementor
+Android.Support.V4.Widget.NestedScrollView+IOnScrollChangeListenerImplementor, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.widget.NestedScrollView_OnScrollChangeListenerImplementor
+Android.Support.V4.Widget.NestedScrollView.IOnScrollChangeListenerImplementor;mono.android.support.v4.widget.NestedScrollView_OnScrollChangeListenerImplementor
+mono.android.support.v4.widget.NestedScrollView_OnScrollChangeListenerImplementor;mono.android.support.v4.widget.NestedScrollView_OnScrollChangeListenerImplementor
 Android.Support.V4.Widget.SwipeRefreshLayout/IOnRefreshListenerImplementor, Xamarin.Android.Support.v4;mono.android.support.v4.widget.SwipeRefreshLayout_OnRefreshListenerImplementor
 Android.Support.V4.Widget.SwipeRefreshLayout+IOnRefreshListenerImplementor, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.widget.SwipeRefreshLayout_OnRefreshListenerImplementor
 Android.Support.V4.Widget.SwipeRefreshLayout.IOnRefreshListenerImplementor;mono.android.support.v4.widget.SwipeRefreshLayout_OnRefreshListenerImplementor
@@ -114,22 +118,18 @@ Android.Support.V7.App.ActionBar/ITabListenerImplementor, Xamarin.Android.Suppor
 Android.Support.V7.App.ActionBar+ITabListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.app.ActionBar_TabListenerImplementor
 Android.Support.V7.App.ActionBar.ITabListenerImplementor;mono.android.support.v7.app.ActionBar_TabListenerImplementor
 mono.android.support.v7.app.ActionBar_TabListenerImplementor;mono.android.support.v7.app.ActionBar_TabListenerImplementor
-Android.Support.V7.Internal.Widget.ActivityChooserModel/IOnChooseActivityListenerImplementor, Xamarin.Android.Support.v7.AppCompat;mono.android.support.v7.internal.widget.ActivityChooserModel_OnChooseActivityListenerImplementor
-Android.Support.V7.Internal.Widget.ActivityChooserModel+IOnChooseActivityListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.internal.widget.ActivityChooserModel_OnChooseActivityListenerImplementor
-Android.Support.V7.Internal.Widget.ActivityChooserModel.IOnChooseActivityListenerImplementor;mono.android.support.v7.internal.widget.ActivityChooserModel_OnChooseActivityListenerImplementor
-mono.android.support.v7.internal.widget.ActivityChooserModel_OnChooseActivityListenerImplementor;mono.android.support.v7.internal.widget.ActivityChooserModel_OnChooseActivityListenerImplementor
-Android.Support.V7.Internal.Widget.IFitWindowsViewGroupOnFitSystemWindowsListenerImplementor, Xamarin.Android.Support.v7.AppCompat;mono.android.support.v7.internal.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor
-Android.Support.V7.Internal.Widget.IFitWindowsViewGroupOnFitSystemWindowsListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.internal.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor
-Android.Support.V7.Internal.Widget.IFitWindowsViewGroupOnFitSystemWindowsListenerImplementor;mono.android.support.v7.internal.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor
-mono.android.support.v7.internal.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor;mono.android.support.v7.internal.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor
-Android.Support.V7.Internal.Widget.ViewStubCompat/IOnInflateListenerImplementor, Xamarin.Android.Support.v7.AppCompat;mono.android.support.v7.internal.widget.ViewStubCompat_OnInflateListenerImplementor
-Android.Support.V7.Internal.Widget.ViewStubCompat+IOnInflateListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.internal.widget.ViewStubCompat_OnInflateListenerImplementor
-Android.Support.V7.Internal.Widget.ViewStubCompat.IOnInflateListenerImplementor;mono.android.support.v7.internal.widget.ViewStubCompat_OnInflateListenerImplementor
-mono.android.support.v7.internal.widget.ViewStubCompat_OnInflateListenerImplementor;mono.android.support.v7.internal.widget.ViewStubCompat_OnInflateListenerImplementor
 Android.Support.V7.Widget.ActionMenuView/IOnMenuItemClickListenerImplementor, Xamarin.Android.Support.v7.AppCompat;mono.android.support.v7.widget.ActionMenuView_OnMenuItemClickListenerImplementor
 Android.Support.V7.Widget.ActionMenuView+IOnMenuItemClickListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.ActionMenuView_OnMenuItemClickListenerImplementor
 Android.Support.V7.Widget.ActionMenuView.IOnMenuItemClickListenerImplementor;mono.android.support.v7.widget.ActionMenuView_OnMenuItemClickListenerImplementor
 mono.android.support.v7.widget.ActionMenuView_OnMenuItemClickListenerImplementor;mono.android.support.v7.widget.ActionMenuView_OnMenuItemClickListenerImplementor
+Android.Support.V7.Widget.ContentFrameLayout/IOnAttachListenerImplementor, Xamarin.Android.Support.v7.AppCompat;mono.android.support.v7.widget.ContentFrameLayout_OnAttachListenerImplementor
+Android.Support.V7.Widget.ContentFrameLayout+IOnAttachListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.ContentFrameLayout_OnAttachListenerImplementor
+Android.Support.V7.Widget.ContentFrameLayout.IOnAttachListenerImplementor;mono.android.support.v7.widget.ContentFrameLayout_OnAttachListenerImplementor
+mono.android.support.v7.widget.ContentFrameLayout_OnAttachListenerImplementor;mono.android.support.v7.widget.ContentFrameLayout_OnAttachListenerImplementor
+Android.Support.V7.Widget.IFitWindowsViewGroupOnFitSystemWindowsListenerImplementor, Xamarin.Android.Support.v7.AppCompat;mono.android.support.v7.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor
+Android.Support.V7.Widget.IFitWindowsViewGroupOnFitSystemWindowsListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor
+Android.Support.V7.Widget.IFitWindowsViewGroupOnFitSystemWindowsListenerImplementor;mono.android.support.v7.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor
+mono.android.support.v7.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor;mono.android.support.v7.widget.FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor
 Android.Support.V7.Widget.PopupMenu/IOnDismissListenerImplementor, Xamarin.Android.Support.v7.AppCompat;mono.android.support.v7.widget.PopupMenu_OnDismissListenerImplementor
 Android.Support.V7.Widget.PopupMenu+IOnDismissListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.PopupMenu_OnDismissListenerImplementor
 Android.Support.V7.Widget.PopupMenu.IOnDismissListenerImplementor;mono.android.support.v7.widget.PopupMenu_OnDismissListenerImplementor
@@ -154,6 +154,26 @@ Android.Support.V7.Widget.ShareActionProvider/IOnShareTargetSelectedListenerImpl
 Android.Support.V7.Widget.ShareActionProvider+IOnShareTargetSelectedListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.ShareActionProvider_OnShareTargetSelectedListenerImplementor
 Android.Support.V7.Widget.ShareActionProvider.IOnShareTargetSelectedListenerImplementor;mono.android.support.v7.widget.ShareActionProvider_OnShareTargetSelectedListenerImplementor
 mono.android.support.v7.widget.ShareActionProvider_OnShareTargetSelectedListenerImplementor;mono.android.support.v7.widget.ShareActionProvider_OnShareTargetSelectedListenerImplementor
+Android.Support.V7.Widget.ViewStubCompat/IOnInflateListenerImplementor, Xamarin.Android.Support.v7.AppCompat;mono.android.support.v7.widget.ViewStubCompat_OnInflateListenerImplementor
+Android.Support.V7.Widget.ViewStubCompat+IOnInflateListenerImplementor, Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.ViewStubCompat_OnInflateListenerImplementor
+Android.Support.V7.Widget.ViewStubCompat.IOnInflateListenerImplementor;mono.android.support.v7.widget.ViewStubCompat_OnInflateListenerImplementor
+mono.android.support.v7.widget.ViewStubCompat_OnInflateListenerImplementor;mono.android.support.v7.widget.ViewStubCompat_OnInflateListenerImplementor
+Android.Support.V7.Widget.RecyclerView/ItemAnimator/IItemAnimatorFinishedListenerImplementor, Xamarin.Android.Support.v7.RecyclerView;mono.android.support.v7.widget.RecyclerView_ItemAnimator_ItemAnimatorFinishedListenerImplementor
+Android.Support.V7.Widget.RecyclerView+ItemAnimator+IItemAnimatorFinishedListenerImplementor, Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.RecyclerView_ItemAnimator_ItemAnimatorFinishedListenerImplementor
+Android.Support.V7.Widget.RecyclerView.ItemAnimator.IItemAnimatorFinishedListenerImplementor;mono.android.support.v7.widget.RecyclerView_ItemAnimator_ItemAnimatorFinishedListenerImplementor
+mono.android.support.v7.widget.RecyclerView_ItemAnimator_ItemAnimatorFinishedListenerImplementor;mono.android.support.v7.widget.RecyclerView_ItemAnimator_ItemAnimatorFinishedListenerImplementor
+Android.Support.V7.Widget.RecyclerView/IOnChildAttachStateChangeListenerImplementor, Xamarin.Android.Support.v7.RecyclerView;mono.android.support.v7.widget.RecyclerView_OnChildAttachStateChangeListenerImplementor
+Android.Support.V7.Widget.RecyclerView+IOnChildAttachStateChangeListenerImplementor, Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.RecyclerView_OnChildAttachStateChangeListenerImplementor
+Android.Support.V7.Widget.RecyclerView.IOnChildAttachStateChangeListenerImplementor;mono.android.support.v7.widget.RecyclerView_OnChildAttachStateChangeListenerImplementor
+mono.android.support.v7.widget.RecyclerView_OnChildAttachStateChangeListenerImplementor;mono.android.support.v7.widget.RecyclerView_OnChildAttachStateChangeListenerImplementor
+Android.Support.V7.Widget.RecyclerView/IOnItemTouchListenerImplementor, Xamarin.Android.Support.v7.RecyclerView;mono.android.support.v7.widget.RecyclerView_OnItemTouchListenerImplementor
+Android.Support.V7.Widget.RecyclerView+IOnItemTouchListenerImplementor, Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.RecyclerView_OnItemTouchListenerImplementor
+Android.Support.V7.Widget.RecyclerView.IOnItemTouchListenerImplementor;mono.android.support.v7.widget.RecyclerView_OnItemTouchListenerImplementor
+mono.android.support.v7.widget.RecyclerView_OnItemTouchListenerImplementor;mono.android.support.v7.widget.RecyclerView_OnItemTouchListenerImplementor
+Android.Support.V7.Widget.RecyclerView/IRecyclerListenerImplementor, Xamarin.Android.Support.v7.RecyclerView;mono.android.support.v7.widget.RecyclerView_RecyclerListenerImplementor
+Android.Support.V7.Widget.RecyclerView+IRecyclerListenerImplementor, Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v7.widget.RecyclerView_RecyclerListenerImplementor
+Android.Support.V7.Widget.RecyclerView.IRecyclerListenerImplementor;mono.android.support.v7.widget.RecyclerView_RecyclerListenerImplementor
+mono.android.support.v7.widget.RecyclerView_RecyclerListenerImplementor;mono.android.support.v7.widget.RecyclerView_RecyclerListenerImplementor
 Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter
 Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter
 Xamarin.Forms.Platform.Android.CellAdapter;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter

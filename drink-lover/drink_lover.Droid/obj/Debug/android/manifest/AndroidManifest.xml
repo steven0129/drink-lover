@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="drink_lover.Droid">
   <!--suppress UsesMinSdkAttributes-->
-  <uses-sdk android:minSdkVersion="15" />
+  <uses-sdk android:minSdkVersion="23" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <application android:label="drink_lover.Droid" android:name="android.app.Application" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
+  <application android:label="drink_lover.Droid" android:icon="@drawable/icon" android:theme="@style/MyTheme" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="drink_lover" android:name="md543cee0f884ad8c523aa5cee50c27c3c1.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

@@ -1,10 +1,13 @@
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\drink_lover.Droid.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\FormsViewGroup.dll
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Design.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.AppCompat.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.CardView.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.MediaRouter.dll
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.dll
