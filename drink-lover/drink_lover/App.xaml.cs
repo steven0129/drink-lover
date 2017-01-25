@@ -13,7 +13,7 @@ namespace drink_lover
 		{
 			InitializeComponent();
 
-			MainPage = new drink_lover.Page1();
+			MainPage = new drink_lover.MainPage();
 		}
 
 		protected override void OnStart ()

@@ -1,16 +1,9 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\user\desktop\drink-lover\drink-lover\drink_lover.windows\obj\debug\intermediatexaml\drink_lover.windows.exe" HashGuid="002b7467-e98c-44c0-617e-87cb3c9d9534" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\newtonsoft.json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\newtonsoft.json.dll" HashGuid="86223907-5808-be51-71b4-c872f8140e29" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xam.plugins.settings.2.1.0\lib\win8\plugin.settings.abstractions.dll" HashGuid="2b0e2d63-0984-03e6-e1dc-77d16c51778c" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xam.plugins.settings.2.1.0\lib\win8\plugin.settings.dll" HashGuid="26f3d346-7a59-3cd8-0ef4-1467b0f8acfc" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\microsoft.net.http.2.2.28\lib\win8\system.net.http.extensions.dll" HashGuid="b50282f8-b9f8-4408-8d49-ba2efe301624" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\microsoft.net.http.2.2.28\lib\win8\system.net.http.primitives.dll" HashGuid="7b71418d-e056-7613-c839-85fb8f6472a6" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.3.3.180\lib\win81\xamarin.forms.core.dll" HashGuid="c782f70f-077f-7e2d-5bd4-f6b5da067f8a" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.dynamic.0.1.18-pre\lib\portable-win+net45+wp80+win81+wpa81+monoandroid10+monotouch10+xamarin.ios10\xamarin.forms.dynamic.dll" HashGuid="d038f5b9-5abc-9f9b-f952-4f8d97f42ce3" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.3.3.180\lib\win81\xamarin.forms.platform.dll" HashGuid="6b938cd4-44c0-2618-7eb6-4caa3f482076" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.3.3.180\lib\win81\xamarin.forms.platform.winrt.dll" HashGuid="fe4acc44-27ba-0e4e-a08b-26ae7dccb678" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.3.3.180\lib\win81\xamarin.forms.platform.winrt.tablet.dll" HashGuid="6cda1a83-1d8e-d2d4-211d-d5f3a06554ab" />
-    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.3.3.180\lib\win81\xamarin.forms.xaml.dll" HashGuid="964969a0-caee-7d9d-82cd-9d1d01056ded" />
+    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.2.0.45\lib\win81\xamarin.forms.core.dll" HashGuid="2a418b72-55c1-19a8-a363-4b8c348fbee0" />
+    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.2.0.45\lib\win81\xamarin.forms.platform.dll" HashGuid="bb4040f4-26bb-5883-795e-627e39855666" />
+    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.2.0.45\lib\win81\xamarin.forms.platform.winrt.dll" HashGuid="068a3578-03d9-2580-f12e-c531e1d2d71c" />
+    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.2.0.45\lib\win81\xamarin.forms.platform.winrt.tablet.dll" HashGuid="9b9da374-307d-5504-a527-efe9a46940ca" />
+    <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.2.0.45\lib\win81\xamarin.forms.xaml.dll" HashGuid="39a2c026-b4e0-6e41-04bc-58950ef1ecfd" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

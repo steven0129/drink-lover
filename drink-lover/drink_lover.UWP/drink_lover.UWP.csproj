@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{A2BFC7A4-D5D6-4258-935D-D85D5BB50451}</ProjectGuid>
+    <ProjectGuid>{F3244D16-2FB5-41BF-ADCA-EDC57FDC45AD}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>drink_lover.UWP</RootNamespace>
