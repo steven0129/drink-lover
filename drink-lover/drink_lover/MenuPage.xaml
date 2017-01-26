@@ -1,15 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Padding="0,40,0,0"
              x:Class="drink_lover.MenuPage"
              Title="Menu">
   <ContentPage.Content>
-    <StackLayout VerticalOptions="FillAndExpand">
-      <ListView x:Name="listView" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
+    <StackLayout>
+      <ListView x:Name="listView" SeparatorVisibility="None">
+        <ListView.Header>
+          <StackLayout Orientation="Horizontal" BackgroundColor="#2196F3">
+            <Label Text="Header" TextColor="White" />
+          </StackLayout>
+        </ListView.Header>
         <ListView.ItemTemplate>
           <DataTemplate>
-            <ImageCell Text="{Binding Title}" ImageSource="{Binding IconSource}"/>
+            <ImageCell Text="{Binding Title}" TextColor="#2196F3" ImageSource="{Binding IconSource}"/>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>

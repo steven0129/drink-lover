@@ -68,5 +68,6 @@ D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\asse
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.csprojResolveAssemblyReference.cache
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\drink_lover.Droid.dll.mdb
