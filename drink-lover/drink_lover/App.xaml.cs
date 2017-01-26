@@ -9,11 +9,20 @@ namespace drink_lover
 {
     public partial class App : Application
     {
+        public NavigationPage nav;
+
         public App()
         {
             InitializeComponent();
+            nav = new NavigationPage(new drink_lover.MainPage());
+            var rootPage = new RootPage();
+            var recommandDrinkPage = new RecommandDrink();
+            var menuPage = new MenuPage();
 
-            MainPage = new NavigationPage(new drink_lover.MainPage());
+            rootPage.Master = menuPage;
+            rootPage.Detail = nav;
+
+            MainPage = rootPage;
         }
 
         protected override void OnStart()

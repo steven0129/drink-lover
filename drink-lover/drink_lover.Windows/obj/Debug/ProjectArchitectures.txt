@@ -1,1 +1,0 @@
-D:\code_testing\drink-lover\drink-lover\drink_lover.Windows\drink_lover.Windows.csproj;neutral

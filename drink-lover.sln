@@ -19,7 +19,10 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		drink-lover\drink_lover\drink_lover.projitems*{2c284c3b-a538-4920-8bdf-938da9cc32ed}*SharedItemsImports = 4
 		drink-lover\drink_lover\drink_lover.projitems*{453f838b-7343-4727-9f5e-28f2b356d1d1}*SharedItemsImports = 4
+		drink-lover\drink_lover\drink_lover.projitems*{65b2d25f-4d50-4f35-bd9f-097c207ac62e}*SharedItemsImports = 4
 		drink-lover\drink_lover\drink_lover.projitems*{cac76e7a-6d2a-474a-b698-26a1693a51a5}*SharedItemsImports = 13
+		drink-lover\drink_lover\drink_lover.projitems*{f3244d16-2fb5-41bf-adca-edc57fdc45ad}*SharedItemsImports = 4
+		drink-lover\drink_lover\drink_lover.projitems*{fa29234d-2e82-4996-b4d8-51ce41cb1975}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

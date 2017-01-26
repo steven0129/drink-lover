@@ -37,7 +37,9 @@ D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\res\values\s
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
-D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.csprojResolveAssemblyReference.cache
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.RootPage.xaml.g.cs
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.RecommandDrink.xaml.g.cs
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.MenuPage.xaml.g.cs
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\drink_lover.Droid.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\Java.Interop.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\Mono.Android.dll.mdb

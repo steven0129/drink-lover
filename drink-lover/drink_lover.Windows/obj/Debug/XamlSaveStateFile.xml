@@ -1,6 +1,5 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="d:\code_testing\drink-lover\drink-lover\drink_lover.windows\obj\debug\intermediatexaml\drink_lover.windows.exe" HashGuid="63f563a3-ea8c-b014-0322-d00d1552ffa7" />
     <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.2.0.45\lib\win81\xamarin.forms.core.dll" HashGuid="2a418b72-55c1-19a8-a363-4b8c348fbee0" />
     <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.2.0.45\lib\win81\xamarin.forms.platform.dll" HashGuid="bb4040f4-26bb-5883-795e-627e39855666" />
     <ReferenceAssembly PathName="d:\code_testing\drink-lover\packages\xamarin.forms.2.2.0.45\lib\win81\xamarin.forms.platform.winrt.dll" HashGuid="068a3578-03d9-2580-f12e-c531e1d2d71c" />
