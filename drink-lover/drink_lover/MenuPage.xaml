@@ -7,7 +7,7 @@
     <StackLayout>
       <ListView x:Name="listView" SeparatorVisibility="None">
         <ListView.Header>
-          <StackLayout Orientation="Horizontal" BackgroundColor="#2196F3">
+          <StackLayout Orientation="Horizontal" HeightRequest="200" BackgroundColor="#2196F3">
             <Label Text="Header" TextColor="White" />
           </StackLayout>
         </ListView.Header>
