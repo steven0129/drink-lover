@@ -14,10 +14,14 @@ namespace drink_lover
         public App()
         {
             InitializeComponent();
-            nav = new NavigationPage(new drink_lover.MainPage());
-            var rootPage = new RootPage();
-            var recommandDrinkPage = new RecommandDrink();
-            var menuPage = new MenuPage();
+
+            var instance = Singleton.getInstnace();
+            instance.init();
+
+            nav = new NavigationPage(instance.mainPage);
+            var rootPage = instance.rootPage;
+            var recommandDrinkPage = instance.recommandDrink;
+            var menuPage = instance.menuPage;
 
             rootPage.Master = menuPage;
             rootPage.Detail = nav;

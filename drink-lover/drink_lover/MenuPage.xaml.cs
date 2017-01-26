@@ -10,6 +10,7 @@ namespace drink_lover
 {
     public partial class MenuPage : ContentPage
     {
+        public ListView ListView { get { return listView; } }
         public MenuPage()
         {
             InitializeComponent();
@@ -19,11 +20,19 @@ namespace drink_lover
         private List<MenuPageItem> initListView()
         {
             var masterPageItems = new List<MenuPageItem>();
+
             masterPageItems.Add(new MenuPageItem
             {
-                Title = "推薦飲料",
+                Title = "主頁",
                 IconSource = "drink_black_24dp.png",
-                TargetType = typeof(RecommandDrink)
+                TargetType = typeof(MainPage)
+            });
+
+            masterPageItems.Add(new MenuPageItem
+            {
+                Title = "雲端訂單",
+                IconSource = "drink_black_24dp.png",
+                TargetType = typeof(NewOrder)
             });
 
             return masterPageItems;
