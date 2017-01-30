@@ -24,14 +24,21 @@ namespace drink_lover
             masterPageItems.Add(new MenuPageItem
             {
                 Title = "主頁",
-                IconSource = "drink_black_24dp.png",
+                IconSource = "drinkBlack.png",
                 TargetType = typeof(MainPage)
             });
 
             masterPageItems.Add(new MenuPageItem
             {
                 Title = "雲端訂單",
-                IconSource = "drink_black_24dp.png",
+                IconSource = "drinkBlack.png",
+                TargetType = typeof(NewOrder)
+            });
+
+            masterPageItems.Add(new MenuPageItem
+            {
+                Title = "關於我們",
+                IconSource = "drinkBlack.png",
                 TargetType = typeof(NewOrder)
             });
 

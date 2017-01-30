@@ -48,3 +48,4 @@ D:\code_testing\drink-lover\drink-lover\drink_lover.Windows\obj\Debug\drink_love
 D:\code_testing\drink-lover\drink-lover\drink_lover.Windows\obj\Debug\drink_lover.Windows.D_.code_testing.drink_lover.drink_lover.drink_lover.RootPage.xaml.g.cs
 D:\code_testing\drink-lover\drink-lover\drink_lover.Windows\obj\Debug\drink_lover.Windows.D_.code_testing.drink_lover.drink_lover.drink_lover.RecommandDrink.xaml.g.cs
 D:\code_testing\drink-lover\drink-lover\drink_lover.Windows\obj\Debug\drink_lover.Windows.D_.code_testing.drink_lover.drink_lover.drink_lover.MenuPage.xaml.g.cs
+D:\code_testing\drink-lover\drink-lover\drink_lover.Windows\obj\Debug\drink_lover.Windows.D_.code_testing.drink_lover.drink_lover.drink_lover.NewOrder.xaml.g.cs

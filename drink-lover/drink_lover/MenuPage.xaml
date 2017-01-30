@@ -5,7 +5,7 @@
              Title="Menu">
   <ContentPage.Content>
     <StackLayout>
-      <ListView x:Name="listView" SeparatorVisibility="None">
+      <ListView x:Name="listView" SeparatorVisibility="Default">
         <ListView.Header>
           <StackLayout Orientation="Horizontal" HeightRequest="200" BackgroundColor="#2196F3">
             <Label Text="Header" TextColor="White" />

@@ -129,7 +129,7 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Drawable\drink_black_24dp.png" />
+    <AndroidResource Include="Resources\Drawable\drinkBlack.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />

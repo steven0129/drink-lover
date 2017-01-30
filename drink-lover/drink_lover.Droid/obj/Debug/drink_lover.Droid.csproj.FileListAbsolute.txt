@@ -40,7 +40,10 @@ D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\Xamarin.Andr
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.RootPage.xaml.g.cs
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.RecommandDrink.xaml.g.cs
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.MenuPage.xaml.g.cs
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.csprojResolveAssemblyReference.cache
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.NewOrder.xaml.g.cs
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\drink_lover.Droid.dll.mdb
+D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\res\drawable\drinkblack.png
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\Java.Interop.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\Mono.Android.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\mscorlib.dll.mdb
@@ -68,7 +71,5 @@ D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\asse
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
-D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.csprojResolveAssemblyReference.cache
-D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.NewOrder.xaml.g.cs
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\obj\Debug\drink_lover.Droid.dll.mdb
 D:\code_testing\drink-lover\drink-lover\drink_lover.Droid\bin\Debug\drink_lover.Droid.dll.mdb
