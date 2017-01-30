@@ -13,7 +13,26 @@
         </ListView.Header>
         <ListView.ItemTemplate>
           <DataTemplate>
-            <ImageCell Text="{Binding Title}" TextColor="#2196F3" ImageSource="{Binding IconSource}"/>
+            <!--<ImageCell Text="{Binding Title}" TextColor="#2196F3" ImageSource="{Binding IconSource}"/>-->
+            <ViewCell>
+
+              <!-- Main design for our menu items -->
+              <StackLayout VerticalOptions="FillAndExpand"
+                           Orientation="Horizontal"
+                           Padding="20,10,0,10"
+                           Spacing="20">
+
+                <Image Source="{Binding IconSource}"
+                       WidthRequest="60"
+                       HeightRequest="60"
+                       VerticalOptions="Center" />
+
+                <Label Text="{Binding Title}"
+                       FontSize="Micro"
+                       VerticalOptions="Center"
+                       TextColor="Black"/>
+              </StackLayout>
+            </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>

@@ -24,7 +24,7 @@ namespace drink_lover
             masterPageItems.Add(new MenuPageItem
             {
                 Title = "主頁",
-                IconSource = "drinkBlack.png",
+                IconSource = "android.png",
                 TargetType = typeof(MainPage)
             });
 
